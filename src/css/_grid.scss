@@ -1,0 +1,128 @@
+$grid-columns:      12 !default;
+$grid-gutter-width: 30px !default;
+
+$grid-breakpoints: (
+  sm: 576px,
+  md: 768px,
+  lg: 992px,
+  xl: 1200px,
+) !default;
+
+$grid-max-widths: (
+  sm: 540px,
+  md: 720px,
+  lg: 960px,
+  xl: 1140px,
+) !default;
+
+
+html {
+  box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+// clearfix
+%clearfix {
+  &:before,
+  &:after {
+    content: " ";
+    display: table;
+  }
+  &:after {
+    clear: both;
+  }
+}
+
+
+// container
+%container,
+%container-fluid {
+  @extend %clearfix;
+  margin-right: auto;
+  margin-left: auto;
+  padding-left: floor($grid-gutter-width / 2);
+  padding-right: ceil($grid-gutter-width / 2);
+}
+
+
+// row
+%row {
+  @extend %clearfix;
+  margin-left:   ceil($grid-gutter-width / -2);
+  margin-right: floor($grid-gutter-width / -2);
+}
+
+
+// col
+%col-base {
+  position: relative;
+  min-height: 1px;
+  padding-left:  $grid-gutter-width / 2;
+  padding-right: $grid-gutter-width / 2;
+}
+
+@mixin _generate-col-base($breakpoint-name: none) {
+  $postfix: if($breakpoint-name == none, '', -#{$breakpoint-name});
+
+  @for $i from 1 through $grid-columns {
+    %col#{$postfix}-#{$i} {
+      @extend %col-base;
+    }
+  }
+}
+
+@include _generate-col-base;
+
+@each $breakpoint-name in map-keys($grid-breakpoints) {
+  @include _generate-col-base($breakpoint-name);
+}
+
+@mixin _generate-breakpoint($breakpoint-name: none) {
+  $postfix: if($breakpoint-name == none, '', -#{$breakpoint-name});
+
+  %col#{$postfix}-base {
+    float: left;
+  }
+
+  @for $i from 1 through $grid-columns {
+    %col#{$postfix}-#{$i} {
+      @extend %col#{$postfix}-base;
+      width: percentage($i / $grid-columns);
+    }
+  }
+
+  @each $modificator in pull, push, offset {
+    @for $i from 0 through $grid-columns {
+      %col#{$postfix}-#{$modificator}-#{$i} {
+        $value: if($i == 0, auto, percentage($i / $grid-columns));
+        @if $modificator == pull {
+          right: $value;
+        } @else if $modificator == push {
+          left: $value;
+        } @else if $modificator == offset {
+          margin-left: $value;
+        }
+      }
+    }
+  }
+}
+
+@include _generate-breakpoint;
+
+@each $breakpoint-name in map-keys($grid-breakpoints) {
+  $breackpoint-min-width: map-get($grid-breakpoints, $breakpoint-name);
+  $container-max-width:   map-get($grid-max-widths,  $breakpoint-name);
+  
+  @media (min-width: $breackpoint-min-width) {
+    %container {
+      width: $container-max-width;
+    }
+
+    @include _generate-breakpoint($breakpoint-name);
+  }
+}

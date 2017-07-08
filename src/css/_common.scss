@@ -1,0 +1,30 @@
+* {
+  box-sizing: border-box;
+}
+
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+body {
+  font-family: $font-primary;
+  font-size: 16px;
+  line-height: $global-line-height;
+  color: $color-text-dark;
+}
+
+a {
+  color: $color-text-dark;
+  text-decoration: none;
+  transition: color $transition-duration $transition-function;
+
+  &:hover {
+    color: $color-primary;
+  }
+}
+
+img {
+  max-width: 100%;
+  max-height: 100%;
+}
