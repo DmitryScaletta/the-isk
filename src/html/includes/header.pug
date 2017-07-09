@@ -1,13 +1,21 @@
-doctype html
-html(lang='ru')
-  head
-    title The Иск
-    meta(charset='UTF-8')
-    meta(name='viewport', content='width=device-width, initial-scale=1')
-    meta(http-equiv='X-UA-Compatible', content='ie=edge')
-    link(rel='stylesheet', href='css/style.css')
-    //- link(rel='apple-touch-icon', sizes='180x180', href='/apple-touch-icon.png')
-    //- link(rel='icon', type='image/png', sizes='32x32', href='/favicon-32x32.png')
-    //- link(rel='icon', type='image/png', sizes='16x16', href='/favicon-16x16.png')
-    //- link(rel='shortcut icon', href='favicon.ico', type='image/x-icon')
-  body
+header.header
+  .header__inner
+    .header__logo
+      a.header__logo-link(href='./index.html')
+    .header__menu
+      nav.header-nav
+        ul.header-nav__list
+          each item in mainMenu
+            - var hasSubmenu = Array.isArray(item.submenu)
+            li.header-nav__item(class=hasSubmenu ? 'header-nav__item--submenu' : '')
+              a.header-nav__link(href=item.link)= item.text
+              if hasSubmenu
+                ul.header-nav__list.header-nav__list--submenu
+                  each subItem in item.submenu
+                    li.header-nav__item
+                      a.header-nav__link(href=subItem.link)= subItem.text
+    .header__phones
+      ul.header-phones
+        each phone in contacts.phones
+          li.header-phones__item
+            a.header-phones__link(href='tel:' + phone.number)= phone.text

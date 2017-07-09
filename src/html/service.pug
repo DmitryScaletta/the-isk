@@ -1,0 +1,31 @@
+doctype html
+html(lang='ru')
+  include includes/head.pug
+  body
+    include includes/header.pug
+
+    section.section.section-feedback.section-feedback--image-2
+      .section__inner
+        .section-feedback__content
+          form(action='#').form
+            .form__block-1
+              .form__group
+                - var field = feedbackForm.fields[0];
+                label.form__label= field.label
+                input(type='text', name='name', placeholder=field.placeholder).form__input
+              .form__group
+                - var field = feedbackForm.fields[1];
+                label.form__label= field.label
+                input(type='text', name='tel', placeholder=field.placeholder).form__input
+            .form__block-2
+              .form__group
+                - var field = feedbackForm.fields[2];
+                label.form__label= field.label
+                textarea(name='message').form__input.form__textarea
+              .form__bottom
+                .form__message= feedbackForm.warningMessage
+                button.button.form__button= feedbackForm.submitLabel
+
+    include includes/footer.pug
+
+    script(src='js/app.js')

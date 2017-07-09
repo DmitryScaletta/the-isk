@@ -1,0 +1,31 @@
+footer.section.footer
+  .section__inner
+    .footer__content
+      section.footer__for-companies
+        h3.footer__title Для компаний
+        nav.footer-menu
+          ul.footer-menu__list
+            each item in services.forPeople
+              li.footer-menu__item
+                a.footer-menu__link(href='#')= item
+        a.footer__link(href='#') Все услуги для компаний
+      section.footer__for-people
+        h3.footer__title Для частных лиц
+        nav.footer-menu
+          ul.footer-menu__list
+            each item in services.forPeople
+              li.footer-menu__item
+                a.footer-menu__link(href='#')= item
+        a.footer__link(href='#') Все услуги для частных лиц
+      section.footer__usefull
+        h3.footer__title Полезное
+        nav.footer-menu.footer-menu--upper
+          ul.footer-menu__list
+            each item in mainMenu[4].submenu
+              li.footer-menu__item
+                a.footer-menu__link(href=item.link)= item.text
+      section.footer__contacts
+        h3.footer__title Контакты
+        p.footer__address= contacts.address
+
+    

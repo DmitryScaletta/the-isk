@@ -1,0 +1,12 @@
+section.section.section-features
+  .section__inner
+    h3.section-features__title Почему лучше обратиться к нам?
+    .section-features__items
+      each feature in features
+        .feature-item
+          figure.feature-item__content
+            .feature-item__image-wrapper
+              img.feature-item__image(src='img/' + feature.image, alt='')
+            figcaption.feature-item__text
+              span.feature-item__title= feature.title
+              span.feature-item__desc= feature.desc

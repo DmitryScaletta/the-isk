@@ -1,4 +1,105 @@
-include includes/header.pug
+doctype html
+html(lang='ru')
+  include includes/head.pug
+  body
+    include includes/header.pug
 
-script(src='js/app.js')
+    section.main-slider
+      .main-slider__items
+        each slide, i in sliders.mainSlider
+          - var style = 'background-image: url("img/media/' + slide.image + '")'
+          - var className = (i === 0) ? 'active' : ''
+          .main-slide(style=style, class=className)
+            .main-slide__inner
+              .main-slide__content
+                span.main-slide__title= slide.title
+                span.main-slide__subtitle= slide.subtitle
+                span.main-slide__desc= slide.desc
+                a.button.main-slide__button(href='#')= slide.buttonLabel
+      .main-slider__controls
+        each slide, i in sliders.mainSlider
+          - var className = (i === 0) ? 'active' : ''
+          span.main-slider__dot(class=className)
 
+
+    section.section.section-text
+      .section__inner
+        h2.center= randomText.title
+        each text in randomText.text
+          p= text
+
+    include includes/features.pug
+
+    section.section.section-text
+      .section__inner
+        h3= randomText.title
+        each text in randomText.text
+          p= text
+
+    section.section-services
+      .section-services__inner
+        .section-services__content
+          .section-services__table.section-services__table--image-1
+            .section-services__table-wrapper.section-services__table-wrapper--icon-users-white
+              table.services-table.services-table--light
+                caption Услуги для компаний
+                tbody
+                  each service in services.forСompanies
+                    tr
+                      td= service
+                      td
+                        span.services-table__price от 2500 ₽
+                        br
+                        span.services-table__term 5-10 дней
+              a.button.button--light.section-services__button(href='services.html') Все услуги
+          .section-services__table.section-services__table--image-2
+            .section-services__table-wrapper.section-services__table-wrapper--icon-user
+              table.services-table
+                caption Услуги для частных лиц
+                tbody
+                  each service in services.forPeople
+                    tr
+                      td= service
+                      td
+                        span.services-table__price от 2500 ₽
+                        br
+                        span.services-table__term 5-10 дней
+              a.button.button--dark.section-services__button(href='services.html') Все услуги
+
+    section.section-promo
+      .section-promo__inner
+        h2.section-promo__title Акция! только для посетителей сайта!
+        span.section-promo__text Закжите качественный анализ вашей ситуации + индивидуальный план действий <strong>БЕСПЛАТНО</strong>
+
+    section.section.section-feedback.section-feedback--image-1
+      .section__inner
+        form(action='#').form
+          .form__content
+            .form__group.form__group--inline
+              - var field = feedbackForm.fields[0];
+              label.form__label= field.label
+              input(type='text', name='name', placeholder=field.placeholder).form__input
+            .form__group.form__group--inline
+              - var field = feedbackForm.fields[1];
+              label.form__label= field.label
+              input(type='text', name='tel', placeholder=field.placeholder).form__input
+            .form__group
+              - var field = feedbackForm.fields[2];
+              label.form__label= field.label
+              textarea(name='message').form__input.form__textarea
+            .form__bottom
+              .form__message= feedbackForm.warningMessage
+              button.button.form__button= feedbackForm.submitLabel
+
+    section.section.section-text
+      .section__inner
+        h4= randomText.title
+        each text in randomText.text
+          p= text
+    
+    section.section.section-news
+      .section__inner
+
+    include includes/footer.pug
+
+    script(src='js/app.js')
