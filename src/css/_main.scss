@@ -7,9 +7,13 @@
 }
 
 .header {
-  @extend %container;
+  border-bottom: 2px solid #c1c1c1;
 
   &__inner {
+    @extend %container;
+  }
+
+  &__content {
     @extend %row;
 
     padding: 15px 0;
@@ -95,7 +99,6 @@
     font-size: 14px;
     text-transform: uppercase;
     font-weight: bold;
-    // padding: 0 15px;
 
     &--submenu {
       &::after {
@@ -149,7 +152,6 @@
 
   // &__item {}
 
-  // &__link {}
   &__link {
     color: $color-text-dark;
   }
@@ -157,6 +159,7 @@
 
 .main-slider {
   position: relative;
+  margin-top: -2px;
 
   &__items {
     position: relative;
