@@ -21,7 +21,6 @@ html(lang='ru')
           - var className = (i === 0) ? 'active' : ''
           span.main-slider__dot(class=className)
 
-
     section.section.section-text
       .section__inner
         h2.center= randomText.title
@@ -97,8 +96,7 @@ html(lang='ru')
         each text in randomText.text
           p= text
     
-    section.section.section-news
-      .section__inner
+    include includes/news.pug
 
     include includes/footer.pug
 

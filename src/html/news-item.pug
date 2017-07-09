@@ -4,8 +4,15 @@ html(lang='ru')
   body
     include includes/header.pug
 
+    section.section.full-news
+      .section__inner
+        - var newsItem = news.items[0];
+        h2= newsItem.title
+        
 
 
+
+    include includes/news.pug
 
     include includes/footer.pug
 
