@@ -21,6 +21,7 @@
     "eslint-plugin-import": "^2.7.0",
     "gh-pages": "^1.0.0",
     "gulp-csso": "^3.0.0",
+    "gulp-html-prettify": "^0.0.1",
     "gulp-imagemin": "^3.3.0",
     "gulp-pug": "^3.3.0",
     "gulp-wait": "^0.0.2",

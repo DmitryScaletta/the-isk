@@ -2,12 +2,13 @@ const path         = require('path');
 const gulpif       = require('gulp-if');
 const wait         = require('gulp-wait');
 const pug          = require('gulp-pug');
+const prettify     = require('gulp-html-prettify');
 const sass         = require('gulp-sass');
 const autoprefixer = require('gulp-autoprefixer');
 const csso         = require('gulp-csso');
 const sourcemaps   = require('gulp-sourcemaps');
 const changed      = require('gulp-changed');
-const htmlmin      = require('gulp-htmlmin');
+// const htmlmin      = require('gulp-htmlmin');
 const imagemin     = require('gulp-imagemin');
 const pngquant     = require('imagemin-pngquant');
 const browserSync  = require('browser-sync');
@@ -33,7 +34,8 @@ module.exports = {
             locals: require(path.resolve(paths.src, 'data.json')),
           }))
           .on('error', handleErrors)
-          .pipe(gulpif(global.production, htmlmin({ collapseWhitespace: true })))
+          // .pipe(gulpif(global.production, htmlmin({ collapseWhitespace: true })))
+          .pipe(gulpif(global.production, prettify({ indent_size: 2 })))
           .pipe(gulp.dest(paths.dest))
           .pipe(gulpif(!global.production, browserSync.stream()));
       };
