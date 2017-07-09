@@ -1,21 +1,22 @@
 header.header
   .header__inner
-    .header__logo
-      a.header__logo-link(href='./index.html')
-    .header__menu
-      nav.header-nav
-        ul.header-nav__list
-          each item in mainMenu
-            - var hasSubmenu = Array.isArray(item.submenu)
-            li.header-nav__item(class=hasSubmenu ? 'header-nav__item--submenu' : '')
-              a.header-nav__link(href=item.link)= item.text
-              if hasSubmenu
-                ul.header-nav__list.header-nav__list--submenu
-                  each subItem in item.submenu
-                    li.header-nav__item
-                      a.header-nav__link(href=subItem.link)= subItem.text
-    .header__phones
-      ul.header-phones
-        each phone in contacts.phones
-          li.header-phones__item
-            a.header-phones__link(href='tel:' + phone.number)= phone.text
+    .header__content
+      .header__logo
+        a.header__logo-link(href='./index.html')
+      .header__menu
+        nav.header-nav
+          ul.header-nav__list
+            each item in mainMenu
+              - var hasSubmenu = Array.isArray(item.submenu)
+              li.header-nav__item(class=hasSubmenu ? 'header-nav__item--submenu' : '')
+                a.header-nav__link(href=item.link)= item.text
+                if hasSubmenu
+                  ul.header-nav__list.header-nav__list--submenu
+                    each subItem in item.submenu
+                      li.header-nav__item
+                        a.header-nav__link(href=subItem.link)= subItem.text
+      .header__phones
+        ul.header-phones
+          each phone in contacts.phones
+            li.header-phones__item
+              a.header-phones__link(href='tel:' + phone.number)= phone.text
