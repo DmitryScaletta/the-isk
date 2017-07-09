@@ -1,39 +1,38 @@
-$screen-sm:              576px;
-$screen-md:              768px;
-$screen-lg:              992px;
-$screen-xl:              1200px;
+$screen-sm:                576px;
+$screen-md:                768px;
+$screen-lg:                992px;
+$screen-xl:                1200px;
 
-$container-max-sm:       540px;
-$container-max-md:       720px;
-$container-max-lg:       960px;
-$container-max-xl:       1170px;
+$container-max-sm:         540px;
+$container-max-md:         720px;
+$container-max-lg:         960px;
+$container-max-xl:         1140px;
 
-$color-primary:          #b80f0a;
-$color-secondary:        #05055c;
-$color-text-dark:        #606060;
-$color-text-light:       #fff;
+$color-primary:            #b80f0a;
+$color-secondary:          #05055c;
+$color-text-dark:          #606060;
+$color-text-light:         #fff;
 
-$transition-duration:    0.2s;
-$transition-function:    linear;
+$transition-duration:      0.2s;
+$transition-function:      linear;
 
-$font-primary:           Arimo, 'Open Sans', Arial, sans-serif;
+$font-primary:             Arimo, 'Open Sans', Arial, sans-serif;
 
-$global-line-height:     1.66;
+$global-line-height:       1.66;
 
 // grid
-$grid-gutter-width-base: 30px;
+$flexboxgrid-gutter-width: 30px;
 
-$grid-breakpoints: (
+$flexboxgrid-breakpoints: (
   sm: $screen-sm,
   md: $screen-md,
   lg: $screen-lg,
   xl: $screen-xl,
 );
 
-$grid-max-widths: (
+$flexboxgrid-max-widths: (
   sm: $container-max-sm,
   md: $container-max-md,
   lg: $container-max-lg,
   xl: $container-max-xl,
 );
-
