@@ -28,3 +28,37 @@ img {
   max-width: 100%;
   max-height: 100%;
 }
+
+.center {
+  text-align: center;
+}
+
+.button {
+  display: inline-block;
+  padding: 8px 18px;
+  border: 2px solid $color-primary;
+  color: $color-primary;
+  font-weight: bold;
+  text-transform: uppercase;
+  text-align: center;
+  background-color: transparent;
+  cursor: pointer;
+  transition:
+    color        $transition-duration $transition-function,
+    border-color $transition-duration $transition-function;
+
+  &--dark {
+    color: $color-text-dark;
+    border-color: $color-text-dark;
+  }
+
+  &--light {
+    color: $color-text-light;
+    border-color: $color-text-light;
+  }
+
+  &--gray {
+    color: #909090;
+    border-color: #909090;
+  }
+}
