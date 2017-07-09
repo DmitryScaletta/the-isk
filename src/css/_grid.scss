@@ -1,76 +1,76 @@
-$grid-columns:      12 !default;
-$grid-gutter-width: 30px !default;
+$flexboxgrid-columns:      12 !default;
+$flexboxgrid-gutter-width: 15px !default;
+$flexboxgrid-outer-margin: 30px !default;
 
-$grid-breakpoints: (
+$flexboxgrid-breakpoints: (
   sm: 576px,
   md: 768px,
   lg: 992px,
   xl: 1200px,
 ) !default;
 
-$grid-max-widths: (
+$flexboxgrid-max-widths: (
   sm: 540px,
   md: 720px,
   lg: 960px,
   xl: 1140px,
 ) !default;
 
-
-html {
-  box-sizing: border-box;
-}
-
-*,
-*::before,
-*::after {
-  box-sizing: inherit;
-}
-
-// clearfix
-%clearfix {
-  &:before,
-  &:after {
-    content: " ";
-    display: table;
-  }
-  &:after {
-    clear: both;
-  }
-}
+$gutter-compensation: $flexboxgrid-gutter-width * 0.5 * -1;
+$half-gutter-width:   $flexboxgrid-gutter-width * 0.5;
 
 
 // container
-%container,
-%container-fluid {
-  @extend %clearfix;
+%container {
   margin-right: auto;
-  margin-left: auto;
-  padding-left: floor($grid-gutter-width / 2);
-  padding-right: ceil($grid-gutter-width / 2);
+  margin-left:  auto;
+  width:     calc(100% - #{$flexboxgrid-gutter-width});
+  max-width: calc(100% - #{$flexboxgrid-gutter-width});
+}
+
+%container-fluid {
+  margin-right: auto;
+  margin-left:  auto;
+  padding-right: $flexboxgrid-outer-margin;
+  padding-left:  $flexboxgrid-outer-margin;
 }
 
 
 // row
 %row {
-  @extend %clearfix;
-  margin-left:   ceil($grid-gutter-width / -2);
-  margin-right: floor($grid-gutter-width / -2);
+  box-sizing: border-box;
+  display: flex;
+  flex: 0 1 auto;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin-right: $gutter-compensation;
+  margin-left:  $gutter-compensation;
 }
 
 
 // col
 %col-base {
-  position: relative;
-  min-height: 1px;
-  padding-left:  $grid-gutter-width / 2;
-  padding-right: $grid-gutter-width / 2;
+  box-sizing: border-box;
+  flex: 0 0 auto;
+  padding-right: $half-gutter-width;
+  padding-left:  $half-gutter-width;
 }
 
 @mixin _generate-col-base($breakpoint-name: none) {
   $postfix: if($breakpoint-name == none, '', -#{$breakpoint-name});
 
-  @for $i from 1 through $grid-columns {
+  %col#{$postfix} {
+    @extend %col-base;
+  }
+
+  @for $i from 1 through $flexboxgrid-columns {
     %col#{$postfix}-#{$i} {
+      @extend %col-base;
+    }
+  }
+
+  @for $i from 0 through $flexboxgrid-columns {
+    %col#{$postfix}-offset-#{$i} {
       @extend %col-base;
     }
   }
@@ -78,47 +78,83 @@ html {
 
 @include _generate-col-base;
 
-@each $breakpoint-name in map-keys($grid-breakpoints) {
+@each $breakpoint-name in map-keys($flexboxgrid-breakpoints) {
   @include _generate-col-base($breakpoint-name);
 }
 
 @mixin _generate-breakpoint($breakpoint-name: none) {
   $postfix: if($breakpoint-name == none, '', -#{$breakpoint-name});
 
-  %col#{$postfix}-base {
-    float: left;
+  %col#{$postfix} {
+    flex-grow: 1;
+    flex-basis: 0;
+    max-width: 100%;
   }
 
-  @for $i from 1 through $grid-columns {
+  @for $i from 1 through $flexboxgrid-columns {
     %col#{$postfix}-#{$i} {
-      @extend %col#{$postfix}-base;
-      width: percentage($i / $grid-columns);
+      flex-basis: 100% / $flexboxgrid-columns * $i;
+      max-width:  100% / $flexboxgrid-columns * $i;
     }
   }
 
-  @each $modificator in pull, push, offset {
-    @for $i from 0 through $grid-columns {
-      %col#{$postfix}-#{$modificator}-#{$i} {
-        $value: if($i == 0, auto, percentage($i / $grid-columns));
-        @if $modificator == pull {
-          right: $value;
-        } @else if $modificator == push {
-          left: $value;
-        } @else if $modificator == offset {
-          margin-left: $value;
-        }
-      }
+  @for $i from 0 through $flexboxgrid-columns - 1 {
+    %col#{$postfix}-offset-#{$i} {
+      margin-left: 100% / $flexboxgrid-columns * $i;
     }
+  }
+
+  %start#{$postfix} {
+    justify-content: flex-start;
+    text-align: start;
+  }
+
+  %center#{$postfix} {
+    justify-content: center;
+    text-align: center;
+  }
+
+  %end#{$postfix} {
+    justify-content: flex-end;
+    text-align: end;
+  }
+
+  %top#{$postfix} {
+    align-items: flex-start;
+  }
+
+  %middle#{$postfix} {
+    align-items: center;
+  }
+
+  %bottom#{$postfix} {
+    align-items: flex-end;
+  }
+
+  %around#{$postfix} {
+    justify-content: space-around;
+  }
+
+  %between#{$postfix} {
+    justify-content: space-between;
+  }
+
+  %first#{$postfix} {
+    order: -1;
+  }
+
+  %last#{$postfix} {
+    order: 1;
   }
 }
 
 @include _generate-breakpoint;
 
-@each $breakpoint-name in map-keys($grid-breakpoints) {
-  $breackpoint-min-width: map-get($grid-breakpoints, $breakpoint-name);
-  $container-max-width:   map-get($grid-max-widths,  $breakpoint-name);
-  
-  @media (min-width: $breackpoint-min-width) {
+@each $breakpoint-name in map-keys($flexboxgrid-breakpoints) {
+  $breackpoint-min-width: map-get($flexboxgrid-breakpoints, $breakpoint-name);
+  $container-max-width:   map-get($flexboxgrid-max-widths,  $breakpoint-name);
+
+  @media only screen and (min-width: $breackpoint-min-width) {
     %container {
       width: $container-max-width;
     }
