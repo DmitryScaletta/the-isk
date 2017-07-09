@@ -32,11 +32,13 @@ module.exports = {
           .pipe(pug({
             locals: require(path.resolve(paths.src, 'data.json')),
           }))
+          .on('error', handleErrors)
           .pipe(gulpif(global.production, htmlmin({ collapseWhitespace: true })))
           .pipe(gulp.dest(paths.dest))
           .pipe(gulpif(!global.production, browserSync.stream()));
       };
     },
+    extensions: ['pug'],
   },
 
   stylesheets: {
@@ -48,7 +50,7 @@ module.exports = {
         };
         return gulp
           .src(paths.src)
-          .pipe(wait(300))
+          .pipe(wait(500))
           .pipe(gulpif(!global.production, sourcemaps.init()))
           .pipe(sass(TASK_CONFIG.stylesheets.sass))
           .on('error', handleErrors)
