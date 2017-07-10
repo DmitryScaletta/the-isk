@@ -4,7 +4,7 @@ header.header
       .header__logo
         a.logo(href='index.html')
       .header__menu
-        nav.header-nav
+        nav.header-nav.js-menu
           ul.header-nav__list
             each item in mainMenu
               - var hasSubmenu = Array.isArray(item.submenu)
@@ -15,6 +15,10 @@ header.header
                     each subItem in item.submenu
                       li.header-nav__item
                         a.header-nav__link(href=subItem.link)= subItem.text
+        .header__mobile
+          .header__mobile-title Меню
+          .header__mobile-button-wrapper
+            a.header__mobile-button.js-toggle-menu
       .header__phones
         ul.phones-list.phones-list--big
           each phone in contacts.phones

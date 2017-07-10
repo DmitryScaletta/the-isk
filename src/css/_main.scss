@@ -28,7 +28,13 @@
 }
 
 .header {
+  position: relative;
+  margin-bottom: 50px;
   border-bottom: 2px solid #c1c1c1;
+
+  @media (min-width: $screen-lg) {
+    margin-bottom: 0;
+  }
 
   &__inner {
     @extend %container;
@@ -41,39 +47,100 @@
   }
 
   &__logo {
-    @extend %col-lg-2;
+    @extend %col-12, %col-sm-6, %col-lg-2;
 
     display: flex;
-    height: 100px;
+    height: 80px;
     align-items: center;
+    justify-content: center;
+
+    @media (min-width: $screen-sm) {
+      height: 100px;
+      justify-content: flex-start;
+    }
   }
 
   &__menu {
     @extend %col-lg-7;
 
-    display: none;
-    height: 100px;
+    display: flex;
+    position: absolute;
+    z-index: 5;
+    bottom: -50px;
+    left: 0;
+    right: 0;
     align-items: center;
     justify-content: center;
+    background: #292931;
+    height: 50px;
 
-    @media (min-width: $screen-md) {
-      display: flex;
+    // @media (min-width: $screen-sm) {}
+
+    @media (min-width: $screen-lg) {
+      position: static;
+      height: 100px;
+      background: transparent;
     }
   }
 
   &__phones {
-    @extend %col-lg-3;
+    @extend %col-12, %col-sm-6, %col-lg-3;
 
     display: flex;
-    height: 100px;
+    height: 80px;
     align-items: center;
-    justify-content: flex-end;
+    justify-content: center;
+
+    @media (min-width: $screen-sm) {
+      height: 100px;
+      justify-content: flex-end;
+    }
+  }
+
+  &__mobile {
+    display: flex;
+    justify-content: space-between;
+    line-height: 50px;
+    margin: 0 auto;
+    padding: 15px 0;
+    width: 100%;
+
+    @media (min-width: $screen-sm) {
+      width: $container-max-sm;
+    }
+
+    @media (min-width: $screen-md) {
+      width: $container-max-md;
+    }
+
+    @media (min-width: $screen-lg) {
+      display: none;
+    }
+
+    &-title {
+      color: $color-text-light;
+      font-size: 18px;
+      text-transform: uppercase;
+      font-weight: bold;
+    }
+
+    // &-button-wrapper {}
+
+    &-button {
+      color: $color-text-light;
+      font-size: 30px;
+      cursor: pointer;
+
+      &::after {
+        content: '☰';
+      }
+    }
   }
 }
 
 .logo {
   display: block;
-  height: 88px;
+  height: 70px;
   width: 151px;
   background-position: center;
   background-repeat: no-repeat;
@@ -83,39 +150,81 @@
   &--dark {
     background-image: url('../img/logo-dark.svg');
   }
+
+  @media (min-width: $screen-sm) {
+    height: 88px;
+  }
 }
 
 .header-nav {
+  display: none;
+  position: absolute;
+  padding: 0 15px;
+  top: 100%;
+  left: 0;
+  right: 0;
+  border-top: 1px solid lighten(#292931, 10%);
+  background: #292931;
+
+  &.opened {
+    display: block;
+  }
+
+  @media (min-width: $screen-lg) {
+    display: block;
+    padding: 0;
+    border: none;
+    position: static;
+    background: transparent;
+  }
+
   &__list {
     display: flex;
-    margin: 0;
-    padding: 0;
+    margin: 0 auto;
+    padding: 15px 0;
+    width: 100%;
+    flex-direction: column;
     list-style: none;
 
     &--submenu {
       display: none;
-      padding: 15px 0;
-      position: absolute;
-      z-index: 2;
-      flex-direction: column;
-      top: 100%;
-      left: -40px;
-      width: 180px;
-      background: $color-secondary;
+    }
 
-      // .header-nav__item {}
+    @media (min-width: $screen-sm) {
+      width: $container-max-sm;
+    }
 
-      .header-nav__link {
-        padding-top: 7px;
-        padding-bottom: 7px;
-        color: $color-text-light;
-        font-size: 15px;
-        font-weight: normal;
-        text-transform: none;
-        white-space: nowrap;
+    @media (min-width: $screen-md) {
+      width: $container-max-md;
+    }
 
-        &:hover {
-          color: #f23933;
+    @media (min-width: $screen-lg) {
+      padding: 0;
+      width: auto;
+      flex-direction: row;
+
+      &--submenu {
+        padding: 15px 0;
+        position: absolute;
+        z-index: 2;
+        flex-direction: column;
+        top: 100%;
+        left: -40px;
+        width: 180px;
+        background: $color-secondary;
+
+        .header-nav__link {
+          padding-top: 7px;
+          padding-bottom: 7px;
+          color: $color-text-light;
+          font-size: 15px;
+          font-weight: normal;
+          text-transform: none;
+          white-space: nowrap;
+
+          &:hover {
+            color: #f23933;
+          }
         }
       }
     }
@@ -127,29 +236,31 @@
     text-transform: uppercase;
     font-weight: bold;
 
-    &--submenu {
-      &::after {
-        content: '';
-        display: block;
-        position: absolute;
-        margin-left: -5px;
-        bottom: 12px;
-        left: 50%;
-        width: 0;
-        height: 0;
-        border-style: solid;
-        border-width: 5px 5px 0;
-        border-color: $color-primary transparent transparent transparent;
-      }
-
-      &:hover {
-        .header-nav__list {
-          display: flex;
+    @media (min-width: $screen-lg) {
+      &--submenu {
+        &::after {
+          content: '';
+          display: block;
+          position: absolute;
+          margin-left: -5px;
+          bottom: 12px;
+          left: 50%;
+          width: 0;
+          height: 0;
+          border-style: solid;
+          border-width: 5px 5px 0;
+          border-color: $color-primary transparent transparent transparent;
         }
 
-        &::after {
-          border-width: 0 5px 5px;
-          border-color: transparent transparent $color-primary transparent;
+        &:hover {
+          .header-nav__list {
+            display: flex;
+          }
+
+          &::after {
+            border-width: 0 5px 5px;
+            border-color: transparent transparent $color-primary transparent;
+          }
         }
       }
     }
@@ -157,11 +268,16 @@
 
   &__link {
     display: block;
-    padding: 20px 15px;
-    color: $color-text-dark;
+    color: $color-text-light;
+    padding: 8px 0;
 
-    &:hover {
-      color: $color-secondary;
+    @media (min-width: $screen-lg) {
+      padding: 20px 12px;
+      color: $color-text-dark;
+
+      &:hover {
+        color: $color-secondary;
+      }
     }
 
     @media (min-width: $screen-xl) {
