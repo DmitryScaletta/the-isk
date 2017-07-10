@@ -27,5 +27,16 @@ footer.section.footer
       section.footer__contacts
         h3.footer__title Контакты
         p.footer__address= contacts.address
-
+        ul.phones-list
+          each phone in contacts.phones
+            li.phones-list__item
+              a.phones-list__link(href='tel:' + phone.number)= phone.text
+        a.footer__link(href='#') Заказать обратный звонок
+    .footer__content
+      .footer__bottom
+        a.logo.logo--dark(href='index.html')
+        .footer__copyright
+          .footer__copyright-text © "The Иск", 2017
+          .footer__copyright-logo
+            a.copyright-logo(href='//art6.ru')
     

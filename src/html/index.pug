@@ -1,3 +1,5 @@
+include mixins/news-preview-item.pug
+
 doctype html
 html(lang='ru')
   include includes/head.pug
@@ -67,8 +69,8 @@ html(lang='ru')
 
     section.section-promo
       .section-promo__inner
-        h2.section-promo__title Акция! только для посетителей сайта!
-        span.section-promo__text Закжите качественный анализ вашей ситуации + индивидуальный план действий <strong>БЕСПЛАТНО</strong>
+        .section-promo__title Акция! только для посетителей сайта!
+        .section-promo__text Закжите качественный анализ вашей ситуации + индивидуальный план действий <strong>БЕСПЛАТНО</strong>
 
     section.section.section-feedback.section-feedback--image-1
       .section__inner
@@ -96,7 +98,14 @@ html(lang='ru')
         each text in randomText.text
           p= text
     
-    include includes/news.pug
+    section.section.section-news
+      .section__inner
+        h2.section__title.center Новости
+        .section-news__content
+          each x, i in [...Array(2)]
+            - var newsItem = news.items[i];
+            - var text = (i % 2 === 0) ? news.largeText : news.smallText;
+            +news-preview-item(newsItem, text)
 
     include includes/footer.pug
 

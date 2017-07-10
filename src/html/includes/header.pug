@@ -2,7 +2,7 @@ header.header
   .header__inner
     .header__content
       .header__logo
-        a.header__logo-link(href='./index.html')
+        a.logo(href='index.html')
       .header__menu
         nav.header-nav
           ul.header-nav__list
@@ -16,7 +16,7 @@ header.header
                       li.header-nav__item
                         a.header-nav__link(href=subItem.link)= subItem.text
       .header__phones
-        ul.header-phones
+        ul.phones-list.phones-list--big
           each phone in contacts.phones
-            li.header-phones__item
-              a.header-phones__link(href='tel:' + phone.number)= phone.text
+            li.phones-list__item
+              a.phones-list__link(href='tel:' + phone.number)= phone.text

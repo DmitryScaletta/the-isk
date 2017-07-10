@@ -1,8 +1,30 @@
+include mixins/breadcrumbs.pug
+
 doctype html
 html(lang='ru')
   include includes/head.pug
   body
     include includes/header.pug
+
+    section.section-image(style='background-image: url("../img/media/slide-2.jpg")')
+      .section-image__inner
+        .section-image__content
+          span.section-image__title Cпециальное предложение
+          span.section-image__subtitle Для вашего бизнеса! <br> Именно для вашего бизнеса!
+
+    section.section
+      .section__inner
+        +breadcrumbs
+        h2 Банкротство
+
+    section.section.section-works
+      .section__inner
+        h2 Выигранные дела по регистрации ИП
+
+
+    section.section-promo
+      .section-promo__inner
+        .section-promo__title Получите бесплатную консультацию по этой услуге
 
     section.section.section-feedback.section-feedback--image-2
       .section__inner
@@ -25,6 +47,14 @@ html(lang='ru')
               .form__bottom
                 .form__message= feedbackForm.warningMessage
                 button.button.form__button= feedbackForm.submitLabel
+
+    section.section.section-text
+      .section__inner
+        h4= randomText.title
+        each text in randomText.text
+          p= text
+
+    include includes/features.pug
 
     include includes/footer.pug
 

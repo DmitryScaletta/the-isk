@@ -1,10 +1,46 @@
+include mixins/breadcrumbs.pug
+
 doctype html
 html(lang='ru')
   include includes/head.pug
   body
     include includes/header.pug
 
-
+    section.section.section-faq
+      .section__inner
+        +breadcrumbs
+        h2 Вопрос-ответ
+        .section__content
+          .section-faq__block
+            .faq-items
+              each item, i in faq
+                - var className = (i === 0) ? 'active' : '';
+                .faq-item(class=className)
+                  .faq-item__title= item
+                  .faq-item__content
+                    each text in randomText.text
+                      p= text
+            form(action='#').form.form--borders
+              .form__group
+                - var field = feedbackForm.fields[0];
+                label.form__label= field.label
+                input(type='text', name='name', placeholder=field.placeholder).form__input
+              .form__group
+                - var field = feedbackForm.fields[1];
+                label.form__label= field.label
+                input(type='text', name='tel', placeholder=field.placeholder).form__input
+              .form__group
+                - var field = feedbackForm.fields[2];
+                label.form__label= field.label
+                textarea(name='message').form__input.form__textarea
+              .form__bottom
+                .form__message= feedbackForm.warningMessage
+                button.button.form__button= feedbackForm.submitLabel
+            p
+              strong Или задайте свой вопрос на почту 
+                a(href='mailto:' + contacts.email)= contacts.email
+          .section-faq__block
+            img(src='//placehold.it/560x900')
 
     include includes/footer.pug
 

@@ -1,11 +1,23 @@
+include mixins/breadcrumbs.pug
+include mixins/news-preview-item.pug
+
 doctype html
 html(lang='ru')
   include includes/head.pug
   body
     include includes/header.pug
 
+    section.section
+      .section__inner
+        +breadcrumbs
 
-
+    section.section
+      .section__inner
+        h2 Новости
+        .section__content
+          each newsItem, i in news.items
+            - var text = (i % 2 === 0) ? news.largeText : news.smallText;
+            +news-preview-item(newsItem, text)
 
     script(src='js/app.js')
 
