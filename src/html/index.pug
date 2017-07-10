@@ -11,7 +11,7 @@ html(lang='ru')
         each slide, i in sliders.mainSlider
           - var style = 'background-image: url("img/media/' + slide.image + '")'
           - var className = (i === 0) ? 'active' : ''
-          .main-slide(style=style, class=className)
+          .main-slide.js-slide(style=style, class=className)
             .main-slide__inner
               .main-slide__content
                 span.main-slide__title= slide.title
@@ -21,7 +21,7 @@ html(lang='ru')
       .main-slider__controls
         each slide, i in sliders.mainSlider
           - var className = (i === 0) ? 'active' : ''
-          span.main-slider__dot(class=className)
+          span.main-slider__dot.js-dot(class=className)
 
     section.section-text.section.section--padding
       .section__inner

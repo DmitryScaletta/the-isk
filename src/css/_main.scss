@@ -340,8 +340,8 @@
     background: $color-secondary;
     cursor: pointer;
     transition:
-      background-color $transition-duration $transition-function,
-      transform        $transition-duration $transition-function;
+      background-color 0.5s $transition-function,
+      transform        0.5s $transition-function;
 
     &:hover,
     &.active {
@@ -360,7 +360,7 @@
   background-position: center;
   background-repeat: no-repeat;
   opacity: 0;
-  transition: opacity $transition-duration $transition-function;
+  transition: opacity 0.5s $transition-function;
 
   &.active {
     z-index: 1;
