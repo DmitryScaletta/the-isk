@@ -32,6 +32,11 @@ footer.section.footer
             li.phones-list__item
               a.phones-list__link(href='tel:' + phone.number)= phone.text
         a.footer__link(href='#') Заказать обратный звонок
+        nav.socials.footer__socials
+          ul.socials__list
+            each social in socials
+              li.socials__item
+                a.socials__link.icon(class=social.icon, href=social.link)
     .footer__content
       .footer__bottom
         a.logo.logo--dark(href='index.html')
