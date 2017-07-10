@@ -530,7 +530,6 @@
   &__desc {
     display: block;
     color: #a5a2a2;
-    word-wrap: wrap;
   }
 }
 
@@ -1023,6 +1022,11 @@
 }
 
 .content-table {
+  &__title {
+    text-transform: uppercase;
+    font-weight: bold;
+  }
+
   &__price {
     font-size: 24px;
     font-weight: bold;
@@ -1055,6 +1059,12 @@
   &__price {
     @extend %col-12, %col-md-4, %col-lg-4;
   }
+}
+
+.table-block {
+  margin-bottom: 15px;
+  padding: 20px 40px 50px;
+  background: #ebf0f2;
 }
 
 .price-block {
