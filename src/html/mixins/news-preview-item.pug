@@ -1,0 +1,11 @@
+mixin news-preview-item(newsItem, text)
+  - var link = 'news-item.html';
+  article.news-preview-item
+    a.news-preview-item__link(href=link)
+      h4.news-preview-item__title= newsItem.title
+    .news-preview-item__image-wrapper
+      a.news-preview-item__link(href=link)
+        img.news-preview-item__image(src='img/media/news/' + newsItem.image, alt='')
+    span.news-preview-item__date= newsItem.date
+    p.news-preview-item__desc= text
+    a.news-preview-item__read-more(href=link)= news.readMoreLabel
