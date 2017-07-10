@@ -9,12 +9,11 @@ html(lang='ru')
     section.section
       .section__inner
         +breadcrumbs
+
         h2.section__title О нас
         each text in randomText.text
           p= text
 
-    section
-      .section__inner
         nav.block-menu
           each item in mainMenu[4].submenu
             figure.block-menu__item
@@ -23,9 +22,9 @@ html(lang='ru')
                   img.block-menu__image(src='img/' + item.image)
                 figcaption.block-menu__caption= item.text
 
-    section.section
-      .section__inner
-        h2 Наша команда
+        h3.section__title Наша команда
+        .team-slider
+          img(src='//placehold.it/1140x430&text=Slider')
 
     include includes/footer.pug
 

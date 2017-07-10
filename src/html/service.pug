@@ -35,12 +35,12 @@ html(lang='ru')
 
         .lists
           .lists__item
-            h3 Что входит в услугу?
+            h3.lists__title Что входит в услугу?
             ul.list
               each item in lists[0]
                 li= item
           .lists__item
-            h3 Необходимые документы
+            h3.lists__title Необходимые документы
             ul.list.list--bright
               each item in lists[1]
                 li= item
@@ -48,7 +48,7 @@ html(lang='ru')
         .table-wrapper
           table.table.content-table
             caption
-              h3 Дополнительные услуги
+              h3.table__title Дополнительные услуги
             tbody
               each item in services.forPeople
                 tr
@@ -59,7 +59,8 @@ html(lang='ru')
 
     section.section-works.section.section--padding
       .section__inner
-        h2 Выигранные дела по регистрации ИП
+        h3.section__block-title Выигранные дела по регистрации ИП
+        img(src='//placehold.it/1140x430&text=Slider')
 
     section.section-promo.section
       .section__inner
@@ -67,25 +68,24 @@ html(lang='ru')
 
     section.section-feedback.section-feedback--image-2.section.section--padding
       .section__inner
-        .section-feedback__content
-          form(action='#').form
-            .form__block-1
-              .form__group
-                - var field = feedbackForm.fields[0];
-                label.form__label= field.label
-                input(type='text', name='name', placeholder=field.placeholder).form__input
-              .form__group
-                - var field = feedbackForm.fields[1];
-                label.form__label= field.label
-                input(type='text', name='tel', placeholder=field.placeholder).form__input
-            .form__block-2
-              .form__group
-                - var field = feedbackForm.fields[2];
-                label.form__label= field.label
-                textarea(name='message').form__input.form__textarea
-              .form__bottom
-                .form__message= feedbackForm.warningMessage
-                button.button.form__button= feedbackForm.submitLabel
+        form.form.section__content(action='#')
+          .form__block-1
+            .form__group
+              - var field = feedbackForm.fields[0];
+              label.form__label= field.label
+              input.form__input(type='text', name='name', placeholder=field.placeholder)
+            .form__group
+              - var field = feedbackForm.fields[1];
+              label.form__label= field.label
+              input.form__input(type='text', name='tel', placeholder=field.placeholder)
+          .form__block-2
+            .form__group
+              - var field = feedbackForm.fields[2];
+              label.form__label= field.label
+              textarea.form__input.form__textarea(name='message')
+            .form__bottom
+              .form__message= feedbackForm.warningMessage
+              button.button.form__button= feedbackForm.submitLabel
 
     section.section-text.section.section--padding
       .section__inner

@@ -64,7 +64,7 @@ img {
 }
 
 .breadcrumbs {
-  padding: 25px 0;
+  margin: 30px 0;
 
   &__list {
     display: flex;
@@ -97,6 +97,7 @@ img {
 }
 
 .table-wrapper {
+  margin-bottom: 15px;
   padding: 20px 40px 50px;
   background: #ebf0f2;
 }

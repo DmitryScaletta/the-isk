@@ -9,6 +9,7 @@ html(lang='ru')
     section.section.section-faq
       .section__inner
         +breadcrumbs
+
         h2 Вопрос-ответ
         .section__content
           .section-faq__block
@@ -20,27 +21,27 @@ html(lang='ru')
                   .faq-item__content
                     each text in randomText.text
                       p= text
-            form(action='#').form.form--borders
+            
+            form.form.form--borders(action='#')
               .form__group
                 - var field = feedbackForm.fields[0];
                 label.form__label= field.label
-                input(type='text', name='name', placeholder=field.placeholder).form__input
+                input.form__input(type='text', name='name', placeholder=field.placeholder)
               .form__group
                 - var field = feedbackForm.fields[1];
                 label.form__label= field.label
-                input(type='text', name='tel', placeholder=field.placeholder).form__input
+                input.form__input(type='text', name='tel', placeholder=field.placeholder)
               .form__group
                 - var field = feedbackForm.fields[2];
                 label.form__label= field.label
-                textarea(name='message').form__input.form__textarea
+                textarea.form__input.form__textarea(name='message')
               .form__bottom
                 .form__message= feedbackForm.warningMessage
                 button.button.form__button= feedbackForm.submitLabel
-            p
-              strong Или задайте свой вопрос на почту 
+              span.form__info Или задайте свой вопрос на почту 
                 a(href='mailto:' + contacts.email)= contacts.email
           .section-faq__block
-            img(src='//placehold.it/560x900')
+            img(src='//placehold.it/555x900')
 
     include includes/footer.pug
 

@@ -1,8 +1,15 @@
+include mixins/breadcrumbs.pug
+
 doctype html
 html(lang='ru')
   include includes/head.pug
   body
     include includes/header.pug
+
+    section.section
+      .section__inner
+        +breadcrumbs
+        h2.section__title Услуги
 
     section.section-services
       .section-services__inner

@@ -74,20 +74,20 @@ html(lang='ru')
 
     section.section-feedback.section-feedback--image-1.section.section--padding
       .section__inner
-        form(action='#').form
+        form.form.section__content(action='#')
           .form__content
             .form__group.form__group--inline
               - var field = feedbackForm.fields[0];
               label.form__label= field.label
-              input(type='text', name='name', placeholder=field.placeholder).form__input
+              input.form__input(type='text', name='name', placeholder=field.placeholder)
             .form__group.form__group--inline
               - var field = feedbackForm.fields[1];
               label.form__label= field.label
-              input(type='text', name='tel', placeholder=field.placeholder).form__input
+              input.form__input(type='text', name='tel', placeholder=field.placeholder)
             .form__group
               - var field = feedbackForm.fields[2];
               label.form__label= field.label
-              textarea(name='message').form__input.form__textarea
+              textarea.form__input.form__textarea(name='message')
             .form__bottom
               .form__message= feedbackForm.warningMessage
               button.button.form__button= feedbackForm.submitLabel

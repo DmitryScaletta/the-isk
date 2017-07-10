@@ -300,6 +300,10 @@
   }
 }
 
+.team-slider {
+  padding-bottom: 50px;
+}
+
 .section-text {
   padding: 30px 0 50px;
 }
@@ -607,8 +611,6 @@
 }
 
 .form {
-  @extend %row;
-
   &--borders {
     .form__input {
       border-color: #dadada;
@@ -714,6 +716,12 @@
       margin-top: 0;
     }
   }
+
+  &__info {
+    display: block;
+    padding: 15px 0;
+    font-size: 14px;
+  }
 }
 
 .section-news {
@@ -721,13 +729,14 @@
 }
 
 .news-preview-item {
-  @extend %col-lg-6;
+  @extend %col-12, %col-lg-6;
 
   &__link {
     color: $color-text-dark;
   }
 
   &__title {
+    margin: 0;
     line-height: 1.25;
   }
 
@@ -766,12 +775,16 @@
 }
 
 .section-faq {
+  padding-bottom: 50px;
+
   &__block {
     @extend %col-12, %col-lg-6;
   }
 }
 
-// .faq-items {}
+.faq-items {
+  padding-bottom: 40px;
+}
 
 .faq-item {
   margin-bottom: 2px;
@@ -805,12 +818,20 @@
 .contacts {
   @extend %row;
 
+  padding-bottom: 50px;
+
   &__text {
     @extend %col-12, %col-lg-4;
+
+    p:first-child {
+      margin-top: 0;
+    }
   }
 
   &__map {
     @extend %col-12, %col-lg-8;
+
+    min-height: 200px;
   }
 
   &__link {
@@ -823,7 +844,7 @@
 .block-menu {
   @extend %row;
 
-  // justify-content: stretch;
+  padding: 20px 0;
 
   &__item {
     @extend %col-12, %col-md-6, %col-lg-3;
@@ -832,6 +853,10 @@
 
     @media (min-width: $screen-md) {
       margin: 0 0 30px;
+    }
+
+    @media (min-width: $screen-lg) {
+      margin: 0;
     }
   }
 
@@ -885,6 +910,19 @@
   &__price {
     font-size: 24px;
     font-weight: bold;
+  }
+}
+
+.lists {
+  @extend %row;
+
+  &__item {
+    @extend %col-12, %col-lg-6;
+  }
+
+  &__title {
+    font-weight: bold;
+    text-transform: uppercase;
   }
 }
 
@@ -1090,5 +1128,34 @@
 
   &__link {
     color: inherit;
+  }
+}
+
+.floating-link {
+  @extend .icon;
+
+  display: none;
+  // display: block;
+  position: fixed;
+  right: 50px;
+  bottom: 50px;
+  width: 80px;
+  height: 80px;
+  line-height: 80px;
+  font-size: 50px;
+  text-align: center;
+  color: $color-text-light;
+  background: #7a0727;
+  transform: rotate(45deg);
+  cursor: pointer;
+
+  &:hover {
+    color: $color-secondary;
+  }
+
+  &::after {
+    content: $icon-mobile;
+    display: block;
+    transform: rotate(-45deg);
   }
 }
