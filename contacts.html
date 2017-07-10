@@ -41,13 +41,13 @@
               </li>
               <li class="header-nav__item header-nav__item--submenu"><a class="header-nav__link" href="about.html">О нас</a>
                 <ul class="header-nav__list header-nav__list--submenu">
-                  <li class="header-nav__item"><a class="header-nav__link" href="faq.html">Отзывы</a>
-                  </li>
                   <li class="header-nav__item"><a class="header-nav__link" href="faq.html">Дела</a>
                   </li>
                   <li class="header-nav__item"><a class="header-nav__link" href="faq.html">Вопрос-ответ</a>
                   </li>
                   <li class="header-nav__item"><a class="header-nav__link" href="faq.html">Блог</a>
+                  </li>
+                  <li class="header-nav__item"><a class="header-nav__link" href="faq.html">Отзывы</a>
                   </li>
                 </ul>
               </li>
@@ -78,7 +78,7 @@
           <li class="breadcrumbs__item">О нас</li>
         </ul>
       </nav>
-      <h2>Контакты</h2>
+      <h2 class="section__title">Контакты</h2>
       <div class="contacts">
         <div class="contacts__text">
           <p>Краснодар, Северная 490, 3 этаж, офис 301</p>
@@ -88,54 +88,65 @@
             <li class="phones-list__item"><a class="phones-list__link" href="tel:+79184453858">+7 (918) 445-38-58</a>
             </li>
           </ul><a class="contacts__link" href="mailto:info@theisk.ru">info@theisk.ru</a>
+          <nav class="socials">
+            <ul class="socials__list">
+              <li class="socials__item">
+                <a class="socials__link icon icon-vk" href="//vk.com"></a>
+              </li>
+              <li class="socials__item">
+                <a class="socials__link icon icon-odnoklassniki" href="//ok.ru"></a>
+              </li>
+              <li class="socials__item">
+                <a class="socials__link icon icon-instagram" href="//instagram.com"></a>
+              </li>
+            </ul>
+          </nav>
         </div>
         <div class="contacts__map">
-          <iframe width="100%" height="200px" frameborder="0" style="border:0;" src="https://www.google.com/maps?q=Краснодар,+Северная+490&amp;output=embed"></iframe>
+          <iframe width="100%" height="100%" frameborder="0" style="border:0;" src="https://www.google.com/maps?q=Краснодар,+Северная+490&amp;output=embed"></iframe>
         </div>
       </div>
     </div>
   </section>
-  <section class="section-promo">
-    <div class="section-promo__inner">
+  <section class="section-promo section">
+    <div class="section__inner">
       <div class="section-promo__title center">У вас есть вопросы? Задайте их нам!</div>
     </div>
   </section>
-  <section class="section section-feedback section-feedback--image-2">
+  <section class="section-feedback section-feedback--image-2 section section--padding">
     <div class="section__inner">
-      <div class="section-feedback__content">
-        <form class="form" action="#">
-          <div class="form__block-1">
-            <div class="form__group">
-              <label class="form__label">Ваше имя:</label>
-              <input class="form__input" type="text" name="name" placeholder="Магдалена">
-            </div>
-            <div class="form__group">
-              <label class="form__label">Телефон или почта:</label>
-              <input class="form__input" type="text" name="tel" placeholder="name@mail.com">
-            </div>
+      <form class="form section__content" action="#">
+        <div class="form__block-1">
+          <div class="form__group">
+            <label class="form__label">Ваше имя:</label>
+            <input class="form__input" type="text" name="name" placeholder="Магдалена">
           </div>
-          <div class="form__block-2">
-            <div class="form__group">
-              <label class="form__label">Опишите ситуацию</label>
-              <textarea class="form__input form__textarea" name="message"></textarea>
-            </div>
-            <div class="form__bottom">
-              <div class="form__message">Отправляя форму, вы соглашаетесь на обработку персональных данных</div>
-              <button class="button form__button">Отправить</button>
-            </div>
+          <div class="form__group">
+            <label class="form__label">Телефон или почта:</label>
+            <input class="form__input" type="text" name="tel" placeholder="name@mail.com">
           </div>
-        </form>
-      </div>
+        </div>
+        <div class="form__block-2">
+          <div class="form__group">
+            <label class="form__label">Опишите ситуацию</label>
+            <textarea class="form__input form__textarea" name="message"></textarea>
+          </div>
+          <div class="form__bottom">
+            <div class="form__message">Отправляя форму, вы соглашаетесь на обработку персональных данных</div>
+            <button class="button form__button">Отправить</button>
+          </div>
+        </div>
+      </form>
     </div>
   </section>
-  <footer class="section footer">
+  <footer class="footer section section--padding">
     <div class="section__inner">
-      <div class="footer__content">
+      <div class="section__content">
         <section class="footer__for-companies">
           <h3 class="footer__title">Для компаний</h3>
           <nav class="footer-menu">
             <ul class="footer-menu__list">
-              <li class="footer-menu__item"><a class="footer-menu__link" href="#">Взыскание с застрйщика</a>
+              <li class="footer-menu__item"><a class="footer-menu__link" href="#">Взыскание с застройщика</a>
               </li>
               <li class="footer-menu__item"><a class="footer-menu__link" href="#">Защита от коллекторов</a>
               </li>
@@ -154,7 +165,7 @@
           <h3 class="footer__title">Для частных лиц</h3>
           <nav class="footer-menu">
             <ul class="footer-menu__list">
-              <li class="footer-menu__item"><a class="footer-menu__link" href="#">Взыскание с застрйщика</a>
+              <li class="footer-menu__item"><a class="footer-menu__link" href="#">Взыскание с застройщика</a>
               </li>
               <li class="footer-menu__item"><a class="footer-menu__link" href="#">Защита от коллекторов</a>
               </li>
@@ -173,13 +184,13 @@
           <h3 class="footer__title">Полезное</h3>
           <nav class="footer-menu footer-menu--upper">
             <ul class="footer-menu__list">
-              <li class="footer-menu__item"><a class="footer-menu__link" href="faq.html">Отзывы</a>
-              </li>
               <li class="footer-menu__item"><a class="footer-menu__link" href="faq.html">Дела</a>
               </li>
               <li class="footer-menu__item"><a class="footer-menu__link" href="faq.html">Вопрос-ответ</a>
               </li>
               <li class="footer-menu__item"><a class="footer-menu__link" href="faq.html">Блог</a>
+              </li>
+              <li class="footer-menu__item"><a class="footer-menu__link" href="faq.html">Отзывы</a>
               </li>
             </ul>
           </nav>
@@ -193,9 +204,22 @@
             <li class="phones-list__item"><a class="phones-list__link" href="tel:+79184453858">+7 (918) 445-38-58</a>
             </li>
           </ul><a class="footer__link" href="#">Заказать обратный звонок</a>
+          <nav class="socials footer__socials">
+            <ul class="socials__list">
+              <li class="socials__item">
+                <a class="socials__link icon icon-vk" href="//vk.com"></a>
+              </li>
+              <li class="socials__item">
+                <a class="socials__link icon icon-odnoklassniki" href="//ok.ru"></a>
+              </li>
+              <li class="socials__item">
+                <a class="socials__link icon icon-instagram" href="//instagram.com"></a>
+              </li>
+            </ul>
+          </nav>
         </section>
       </div>
-      <div class="footer__content">
+      <div class="section__content">
         <div class="footer__bottom">
           <a class="logo logo--dark" href="index.html"></a>
           <div class="footer__copyright">
@@ -208,6 +232,7 @@
       </div>
     </div>
   </footer>
+  <a class="floating-link"></a>
   <script src="js/app.js"></script>
 </body>
 
