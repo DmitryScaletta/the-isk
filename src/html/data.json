@@ -31,20 +31,24 @@
       "link": "about.html",
       "submenu": [
         {
-          "text": "Отзывы",
-          "link": "faq.html"
-        },
-        {
           "text": "Дела",
-          "link": "faq.html"
+          "link": "faq.html",
+          "image": "block-menu-1.svg"
         },
         {
           "text": "Вопрос-ответ",
-          "link": "faq.html"
+          "link": "faq.html",
+          "image": "block-menu-2.svg"
         },
         {
           "text": "Блог",
-          "link": "faq.html"
+          "link": "faq.html",
+          "image": "block-menu-3.svg"
+        },
+        {
+          "text": "Отзывы",
+          "link": "faq.html",
+          "image": "block-menu-4.svg"
         }
       ]
     },

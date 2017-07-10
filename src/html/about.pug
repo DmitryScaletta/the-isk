@@ -5,8 +5,27 @@ html(lang='ru')
   include includes/head.pug
   body
     include includes/header.pug
+  
+    section.section
+      .section__inner
+        +breadcrumbs
+        h2 О нас
+        each text in randomText.text
+          p= text
 
-    +breadcrumbs
+    section.section
+      .section__inner
+        nav.block-menu
+          each item in mainMenu[4].submenu
+            figure.block-menu__item
+              a(href=item.link).block-menu__link
+                .block-menu__image-wrapper
+                  img.block-menu__image(src='img/' + item.image)
+                figcaption.block-menu__caption= item.text
+
+    section.section
+      .section__inner
+        h2 Наша команда
 
     include includes/footer.pug
 

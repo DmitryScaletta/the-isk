@@ -802,6 +802,43 @@
   }
 }
 
+.block-menu {
+  @extend %row;
+
+  // justify-content: stretch;
+
+  &__item {
+    @extend %col-12, %col-md-6, %col-lg-3;
+
+    // display: flex;
+    margin: 0;
+    // flex-direction: column;
+  }
+
+  &__link {
+    display: block;
+    padding: 0 40px;
+    height: 100%;
+    background: #ebf0f2;
+  }
+
+  &__image-wrapper {
+    display: flex;
+    // flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+    height: 90px;
+  }
+
+  &__image {}
+
+  &__caption {
+    padding: 8px 0 18px;
+    font-size: 18px;
+    text-transform: uppercase;
+  }
+}
+
 .footer {
   color: #808080;
   background: #292931;
