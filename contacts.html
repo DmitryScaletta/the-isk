@@ -20,7 +20,7 @@
     <div class="header__inner">
       <div class="header__content">
         <div class="header__logo">
-          <a class="header__logo-link" href="./index.html"></a>
+          <a class="logo" href="index.html"></a>
         </div>
         <div class="header__menu">
           <nav class="header-nav">
@@ -57,16 +57,77 @@
           </nav>
         </div>
         <div class="header__phones">
-          <ul class="header-phones">
-            <li class="header-phones__item"><a class="header-phones__link" href="tel:+78612151524">+7 (861) 215-15-24</a>
+          <ul class="phones-list phones-list--big">
+            <li class="phones-list__item"><a class="phones-list__link" href="tel:+78612151524">+7 (861) 215-15-24</a>
             </li>
-            <li class="header-phones__item"><a class="header-phones__link" href="tel:+79184453858">+7 (918) 445-38-58</a>
+            <li class="phones-list__item"><a class="phones-list__link" href="tel:+79184453858">+7 (918) 445-38-58</a>
             </li>
           </ul>
         </div>
       </div>
     </div>
   </header>
+  <section class="section">
+    <div class="section__inner">
+      <nav class="breadcrumbs">
+        <ul class="breadcrumbs__list">
+          <li class="breadcrumbs__item"><a class="breadcrumbs__link" href="">Главная</a>
+          </li>
+          <li class="breadcrumbs__item"><a class="breadcrumbs__link" href="">Юридические услуги для компаний</a>
+          </li>
+          <li class="breadcrumbs__item">О нас</li>
+        </ul>
+      </nav>
+      <h2>Контакты</h2>
+      <div class="contacts">
+        <div class="contacts__text">
+          <p>Краснодар, Северная 490, 3 этаж, офис 301</p>
+          <ul class="phones-list">
+            <li class="phones-list__item"><a class="phones-list__link" href="tel:+78612151524">+7 (861) 215-15-24</a>
+            </li>
+            <li class="phones-list__item"><a class="phones-list__link" href="tel:+79184453858">+7 (918) 445-38-58</a>
+            </li>
+          </ul><a class="contacts__link" href="mailto:info@theisk.ru">info@theisk.ru</a>
+        </div>
+        <div class="contacts__map">
+          <iframe width="100%" height="200px" frameborder="0" style="border:0;" src="https://www.google.com/maps?q=Краснодар,+Северная+490&amp;output=embed"></iframe>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="section-promo">
+    <div class="section-promo__inner">
+      <div class="section-promo__title center">У вас есть вопросы? Задайте их нам!</div>
+    </div>
+  </section>
+  <section class="section section-feedback section-feedback--image-2">
+    <div class="section__inner">
+      <div class="section-feedback__content">
+        <form class="form" action="#">
+          <div class="form__block-1">
+            <div class="form__group">
+              <label class="form__label">Ваше имя:</label>
+              <input class="form__input" type="text" name="name" placeholder="Магдалена">
+            </div>
+            <div class="form__group">
+              <label class="form__label">Телефон или почта:</label>
+              <input class="form__input" type="text" name="tel" placeholder="name@mail.com">
+            </div>
+          </div>
+          <div class="form__block-2">
+            <div class="form__group">
+              <label class="form__label">Опишите ситуацию</label>
+              <textarea class="form__input form__textarea" name="message"></textarea>
+            </div>
+            <div class="form__bottom">
+              <div class="form__message">Отправляя форму, вы соглашаетесь на обработку персональных данных</div>
+              <button class="button form__button">Отправить</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
   <footer class="section footer">
     <div class="section__inner">
       <div class="footer__content">
@@ -126,7 +187,24 @@
         <section class="footer__contacts">
           <h3 class="footer__title">Контакты</h3>
           <p class="footer__address">г. Краснодар, ул.Северная 490, 3-й этаж, офис 301</p>
+          <ul class="phones-list">
+            <li class="phones-list__item"><a class="phones-list__link" href="tel:+78612151524">+7 (861) 215-15-24</a>
+            </li>
+            <li class="phones-list__item"><a class="phones-list__link" href="tel:+79184453858">+7 (918) 445-38-58</a>
+            </li>
+          </ul><a class="footer__link" href="#">Заказать обратный звонок</a>
         </section>
+      </div>
+      <div class="footer__content">
+        <div class="footer__bottom">
+          <a class="logo logo--dark" href="index.html"></a>
+          <div class="footer__copyright">
+            <div class="footer__copyright-text">© "The Иск", 2017</div>
+            <div class="footer__copyright-logo">
+              <a class="copyright-logo" href="//art6.ru"></a>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </footer>
