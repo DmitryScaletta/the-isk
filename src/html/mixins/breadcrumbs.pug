@@ -1,0 +1,10 @@
+mixin breadcrumbs(items = ['Главная', 'Юридические услуги для компаний', 'О нас'])
+  nav.breadcrumbs
+    ul.breadcrumbs__list
+      each item, i in items
+        - var isLast = i === items.length - 1;
+        if isLast
+          li.breadcrumbs__item= item
+        else
+          li.breadcrumbs__item
+            a.breadcrumbs__link(href='')= item
