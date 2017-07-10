@@ -4,16 +4,9 @@ h3,
 h4,
 h5,
 h6 {
-  margin: 0 0 20px;
+  margin: 20px 0;
   line-height: 1.5;
   font-weight: normal;
-}
-
-h1,
-h2,
-h3 {
-  text-transform: uppercase;
-  font-weight: bold;
 }
 
 h1 {
@@ -38,4 +31,59 @@ h5 {
 
 h6 {
   font-size: 16px;
+}
+
+.lists {
+  @extend %row;
+
+  &__item {
+    @extend %col-12, %col-lg-6;
+  }
+}
+
+.list {
+  padding-left: 40px;
+  list-style: none;
+
+  li {
+    position: relative;
+    padding-bottom: 20px;
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: 9px;
+      left: -40px;
+      height: 8px;
+      width: 8px;
+      background: $color-secondary;
+    }
+  }
+
+  &--bright {
+    li::before {
+      background: $color-primary;
+    }
+  }
+
+  &--no-markers {
+    padding: 0;
+
+    li::before {
+      display: none;
+    }
+  }
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+
+  td {
+    padding: 18px 0;
+    border: 1px solid #c1c1c1;
+    border-left: none;
+    border-right: none;
+    font-size: 18px;
+  }
 }
