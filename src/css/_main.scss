@@ -673,19 +673,23 @@
   }
 
   tr td:last-child {
-    text-align: right;
     white-space: nowrap;
     width: 40%;
   }
 
   &__price {
+    display: block;
+    padding-bottom: 2px;
+    text-align: right;
     font-weight: bold;
   }
 
   &__term {
+    display: block;
     position: relative;
     top: -3px;
     font-size: 14px;
+    text-align: right;
     color: #909090;
   }
 }
