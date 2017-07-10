@@ -6,8 +6,8 @@ html(lang='ru')
   body
     include includes/header.pug
 
-    section.section-image(style='background-image: url("img/media/slide-2.jpg")')
-      .section-image__inner
+    section.section-image.section(style='background-image: url("img/media/slide-2.jpg")')
+      .section__inner
         .section-image__content
           span.section-image__title Cпециальное предложение
           span.section-image__subtitle Для вашего бизнеса! <br> Именно для вашего бизнеса!
@@ -15,18 +15,57 @@ html(lang='ru')
     section.section
       .section__inner
         +breadcrumbs
-        h2 Банкротство
+        h2.section__title Банкротство
 
-    section.section.section-works
+        .list-price
+          .list-price__list
+            ul.list.list--no-markers
+              each x, i in [...Array(5)]
+                li
+                  a(href='#')= services.forPeople[i]
+          .list-price__price
+            .price-block
+              .price-block__content
+                .price-block__title Стоимость услуги
+                .price-block__price от 2500 ₽
+                .price-block__term 5-10 дней
+
+
+        p= randomText.text[1]
+
+        .lists
+          .lists__item
+            h3 Что входит в услугу?
+            ul.list
+              each item in lists[0]
+                li= item
+          .lists__item
+            h3 Необходимые документы
+            ul.list.list--bright
+              each item in lists[1]
+                li= item
+
+        .table-wrapper
+          table.table.content-table
+            caption
+              h3 Дополнительные услуги
+            tbody
+              each item in services.forPeople
+                tr
+                  td= item
+                  td 
+                    span.content-table__price 2500 ₽
+
+
+    section.section-works.section.section--padding
       .section__inner
         h2 Выигранные дела по регистрации ИП
 
-
-    section.section-promo
-      .section-promo__inner
+    section.section-promo.section
+      .section__inner
         .section-promo__title Получите бесплатную консультацию по этой услуге
 
-    section.section.section-feedback.section-feedback--image-2
+    section.section-feedback.section-feedback--image-2.section.section--padding
       .section__inner
         .section-feedback__content
           form(action='#').form
@@ -48,7 +87,7 @@ html(lang='ru')
                 .form__message= feedbackForm.warningMessage
                 button.button.form__button= feedbackForm.submitLabel
 
-    section.section.section-text
+    section.section-text.section.section--padding
       .section__inner
         h4= randomText.title
         each text in randomText.text

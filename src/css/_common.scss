@@ -64,12 +64,14 @@ img {
 }
 
 .breadcrumbs {
+  padding: 25px 0;
+
   &__list {
     display: flex;
     margin: 0;
     padding: 0;
     list-style: none;
-    font-size: 15px;
+    font-size: 13px;
   }
 
   &__item {
@@ -92,4 +94,9 @@ img {
   &__link {
     color: $color-text-dark;
   }
+}
+
+.table-wrapper {
+  padding: 20px 40px 50px;
+  background: #ebf0f2;
 }

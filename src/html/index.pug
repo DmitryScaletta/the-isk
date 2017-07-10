@@ -23,17 +23,17 @@ html(lang='ru')
           - var className = (i === 0) ? 'active' : ''
           span.main-slider__dot(class=className)
 
-    section.section.section-text
+    section.section-text.section.section--padding
       .section__inner
-        h2.center= randomText.title
+        h2.section__title.center= randomText.title
         each text in randomText.text
           p= text
 
     include includes/features.pug
 
-    section.section.section-text
+    section.section-text.section.section--padding
       .section__inner
-        h3= randomText.title
+        h3.section__title= randomText.title
         each text in randomText.text
           p= text
 
@@ -67,12 +67,12 @@ html(lang='ru')
                         span.services-table__term 5-10 дней
               a.button.button--dark.section-services__button(href='services.html') Все услуги
 
-    section.section-promo
-      .section-promo__inner
+    section.section-promo.section
+      .section__inner
         .section-promo__title Акция! только для посетителей сайта!
         .section-promo__text Закжите качественный анализ вашей ситуации + индивидуальный план действий <strong>БЕСПЛАТНО</strong>
 
-    section.section.section-feedback.section-feedback--image-1
+    section.section-feedback.section-feedback--image-1.section.section--padding
       .section__inner
         form(action='#').form
           .form__content
@@ -92,16 +92,16 @@ html(lang='ru')
               .form__message= feedbackForm.warningMessage
               button.button.form__button= feedbackForm.submitLabel
 
-    section.section.section-text
+    section.section-text.section.section--padding
       .section__inner
         h4= randomText.title
         each text in randomText.text
           p= text
     
-    section.section.section-news
+    section.section-news.section.section--padding
       .section__inner
-        h2.section__title.center Новости
-        .section-news__content
+        h2.section__block-title.center Новости
+        .section__content
           each x, i in [...Array(2)]
             - var newsItem = news.items[i];
             - var text = (i % 2 === 0) ? news.largeText : news.smallText;

@@ -1,5 +1,9 @@
 .section {
-  padding: 50px 0;
+  overflow: hidden;
+
+  &--padding {
+    padding: 50px 0;
+  }
 
   &__inner {
     @extend %container;
@@ -7,6 +11,19 @@
 
   &__content {
     @extend %row;
+  }
+
+  &__title {
+    display: block;
+    font-weight: bold;
+    text-transform: uppercase;
+  }
+
+  &__block-title {
+    display: block;
+    margin: 0 0 40px;
+    font-weight: bold;
+    text-transform: uppercase;
   }
 }
 
@@ -283,12 +300,12 @@
   }
 }
 
+.section-text {
+  padding: 30px 0 50px;
+}
+
 .section-image {
   margin-top: -2px;
-
-  &__inner {
-    @extend %container;
-  }
 
   &__content {
     display: flex;
@@ -560,10 +577,6 @@
   background: #9c2838;
   line-height: 1.4;
 
-  &__inner {
-    @extend %container;
-  }
-
   &__title {
     font-size: 35px;
     font-weight: bold;
@@ -705,10 +718,6 @@
 
 .section-news {
   background: #ebf0f2;
-
-  &__content {
-    @extend %row;
-  }
 }
 
 .news-preview-item {
@@ -872,24 +881,71 @@
   }
 }
 
+.content-table {
+  &__price {
+    font-size: 24px;
+    font-weight: bold;
+  }
+}
+
+.list-price {
+  @extend %row;
+
+  &__list {
+    @extend %col-12, %col-md-8, %col-lg-8;
+
+    font-size: 18px;
+    font-weight: bold;
+  }
+
+  &__price {
+    @extend %col-12, %col-md-4, %col-lg-4;
+  }
+}
+
+.price-block {
+  display: flex;
+  padding: 20px 0;
+  justify-content: center;
+  background: #ebf0f2;
+
+  // &__content {}
+
+  &__title {
+    padding-bottom: 5px;
+    font-weight: bold;
+    font-size: 18px;
+  }
+
+  &__price {
+    font-weight: bold;
+    font-size: 36px;
+    line-height: 40px;
+  }
+
+  &__term {
+    color: #909090;
+  }
+}
+
 .footer {
   color: #808080;
   background: #292931;
 
-  &__inner {
-    @extend %container;
-  }
-
-  &__content {
-    @extend %row;
-  }
-
   &__for-companies {
     @extend %col-12, %col-md-6, %col-xl-3;
+
+    display: none;
+
+    @media (min-width: $screen-md) {
+      display: block;
+    }
   }
 
   &__title {
     font-size: 16px;
+    font-weight: bold;
+    text-transform: uppercase;
   }
 
   &__link {
@@ -899,10 +955,22 @@
 
   &__for-people {
     @extend %col-12, %col-md-6, %col-xl-3;
+
+    display: none;
+
+    @media (min-width: $screen-md) {
+      display: block;
+    }
   }
 
   &__usefull {
-    @extend %col-12, %col-md-6, %col-xl-3;
+    @extend %col-12, %col-sm-6, %col-xl-3;
+
+    display: none;
+
+    @media (min-width: $screen-sm) {
+      display: block;
+    }
 
     @media (min-width: $screen-xl) {
       padding-left: 60px;
@@ -910,14 +978,24 @@
   }
 
   &__contacts {
-    @extend %col-12, %col-md-6, %col-xl-3;
+    @extend %col-12, %col-sm-6, %col-xl-3;
+
+    text-align: center;
+
+    @media (min-width: $screen-sm) {
+      text-align: right;
+    }
+
+    @media (min-width: $screen-md) {
+      text-align: left;
+    }
   }
 
   // &__address {}
 
   &__bottom {
-    @extend %col-12, %col-lg-6;
-    @extend %col-lg-offset-6;
+    @extend %col-12, %col-xl-6;
+    @extend %col-xl-offset-6;
 
     display: flex;
     justify-content: space-between;
@@ -933,6 +1011,7 @@
     display: flex;
     padding-top: 15px;
     margin-left: 10px;
+    min-width: 180px;
     justify-content: space-between;
     align-items: center;
     flex-grow: 1;
@@ -945,11 +1024,20 @@
   }
 
   // &__copyright-logo {}
-  
+
   &__socials {
     padding-top: 35px;
     font-size: 22px;
     color: #605f6d;
+    text-align: center;
+
+    @media (min-width: $screen-sm) {
+      text-align: right;
+    }
+
+    @media (min-width: $screen-md) {
+      text-align: left;
+    }
   }
 }
 
@@ -986,7 +1074,7 @@
 
 .socials {
   &__list {
-    display: flex;
+    display: inline-flex;
     margin: 0;
     padding: 0;
     list-style: none;
