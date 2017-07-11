@@ -89,11 +89,12 @@ html(lang='ru')
               .form__message= feedbackForm.warningMessage
               button.button.form__button= feedbackForm.submitLabel
 
-    section.section-text.section.section--padding
+    section.section
       .section__inner
-        h4= randomText.title
-        each text in randomText.text
-          p= text
+        .block.block-text
+          h4= randomText.title
+          each text in randomText.text
+            p= text
 
     include includes/features.pug
 
