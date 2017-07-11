@@ -1,7 +1,7 @@
 mixin news-preview-item(newsItem, text, readMore = true)
   - var link = 'news-item.html';
   article.news-preview-item
-    .news-preview-item__picture
+    .news-preview-item__image
       a.news-preview-item__link(href=link)
         .shadow-image
           img.shadow-image__image(src='img/media/news/' + newsItem.image, alt='')
