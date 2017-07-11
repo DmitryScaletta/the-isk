@@ -100,6 +100,7 @@ img {
 
     &:last-child {
       font-weight: bold;
+      padding-right: 0;
 
       &::after {
         display: none;
