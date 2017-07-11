@@ -7,10 +7,10 @@ html(lang='ru')
   body
     include includes/header.pug
 
-    section.section
+    section.section.section-news
       .section__inner
         +breadcrumbs(['Новости'])
-        h2 Новости
+        h2.section__title Новости
         .section__content
           each newsItem, i in news.items
             - var text = (i % 2 === 0) ? news.largeText : news.smallText;
