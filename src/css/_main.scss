@@ -1038,14 +1038,12 @@
   margin-bottom: 50px;
 
   .block:first-child,
-  & > :first-child.section__title,
-  & > :first-child.list {
+  & > :first-child {
     margin-top: 0;
   }
 
   .block:last-child,
-  & > :last-child.section__title,
-  & > :last-child.list {
+  & > :last-child {
     margin-bottom: 0;
   }
 }
@@ -1088,7 +1086,11 @@
   &__map {
     @extend %col-12, %col-lg-8;
 
-    min-height: 200px;
+    min-height: 300px;
+
+    @media (min-width: $screen-lg) {
+      min-height: 200px;
+    }
   }
 
   &__link {
