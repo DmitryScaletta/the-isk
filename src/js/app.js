@@ -23,7 +23,7 @@
 (() => {
   const SLIDER_INTERVAL = 4000;
 
-  const sliderContainer = document.querySelector('.main-slider');
+  const sliderContainer = document.querySelector('.slider-main');
   if (sliderContainer === null) return;
 
   const slides       = sliderContainer.querySelectorAll('.js-slide');
