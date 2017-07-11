@@ -17,6 +17,10 @@
     display: block;
     font-weight: bold;
     text-transform: uppercase;
+
+    & + .block {
+      margin-top: 30px;
+    }
   }
 
   &__block-title {
@@ -432,17 +436,9 @@
   }
 }
 
-.slider-team {
-  padding-bottom: 50px;
-}
+// .slider-team {}
 
-.slider-portfolio {
-  padding-bottom: 50px;
-}
-
-.section-text {
-  padding: 30px 0 50px;
-}
+// .slider-portfolio {}
 
 .section-image {
   position: relative;
@@ -893,6 +889,8 @@
   }
 }
 
+// news
+
 .section-news {
   padding-bottom: 50px;
 }
@@ -1033,77 +1031,57 @@
   }
 }
 
-.section-faq {
-  padding-bottom: 50px;
+// blocks
 
-  &__block {
-    @extend %col-12, %col-lg-6;
+.block {
+  margin-top: 50px;
+  margin-bottom: 50px;
+
+  .block:first-child,
+  & > :first-child.section__title,
+  & > :first-child.list {
+    margin-top: 0;
+  }
+
+  .block:last-child,
+  & > :last-child.section__title,
+  & > :last-child.list {
+    margin-bottom: 0;
   }
 }
 
-.faq-items {
-  padding-bottom: 40px;
-}
-
-.faq-item {
-  margin-bottom: 2px;
-  overflow: hidden;
-
-  &.active {
-    .faq-item__title {
-      background: #333365;
-      color: $color-text-light;
-    }
-
-    .faq-item__content {
-      // display: block;
-      max-height: 100%;
-    }
-  }
-
-  &__title {
-    padding: 10px 20px;
-    line-height: 1.5;
-    background: $color-bg-light;
-    cursor: pointer;
-    transition:
-      color            $transition-duration $transition-function,
-      background-color $transition-duration $transition-function;
-  }
-
-  &__content {
-    position: relative;
-    padding: 0 20px;
-    max-height: 0;
-    overflow: hidden;
-    border: 1px solid #dadada;
-    border-top: none;
-    border-bottom: none;
-    transition: max-height $transition-duration $transition-function;
-
-    &::after {
-      content: '';
-      display: block;
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      height: 1px;
-      background: #dadada;
-    }
-  }
-}
-
-.contacts {
+.block-layout {
   @extend %row;
 
-  padding-bottom: 50px;
+  &__half {
+    @extend %col-12, %col-lg-6;
+
+    &:first-child {
+      margin-bottom: 50px;
+
+      @media (min-width: $screen-lg) {
+        margin-bottom: 0;
+      }
+    }
+  }
+}
+
+// .block-text {}
+
+.block-contacts {
+  @extend %row;
 
   &__text {
     @extend %col-12, %col-lg-4;
 
+    margin-bottom: 50px;
+
     p:first-child {
       margin-top: 0;
+    }
+
+    @media (min-width: $screen-lg) {
+      margin-bottom: 0;
     }
   }
 
@@ -1123,19 +1101,28 @@
 .block-menu {
   @extend %row;
 
-  padding: 20px 0;
-
   &__item {
     @extend %col-12, %col-md-6, %col-lg-3;
 
     margin: 0 0 15px;
 
+    &:last-child {
+      margin: 0;
+    }
+
     @media (min-width: $screen-md) {
-      margin: 0 0 30px;
+      &:nth-child(1),
+      &:nth-child(2), {
+        margin: 0 0 30px;
+      }
+
+      &:nth-child(3) {
+        margin: 0;
+      }
     }
 
     @media (min-width: $screen-lg) {
-      margin: 0;
+      margin: 0 !important;
     }
   }
 
@@ -1185,6 +1172,81 @@
   }
 }
 
+.block-main-list {
+  @extend %row;
+
+  &__list {
+    @extend %col-12, %col-md-7, %col-lg-8;
+
+    margin-bottom: 50px;
+    font-size: rem(18px);
+    font-weight: bold;
+
+    @media (min-width: $screen-md) {
+      margin-bottom: 0;
+    }
+  }
+
+  &__price {
+    @extend %col-12, %col-md-5, %col-lg-4;
+  }
+}
+
+.block-table {
+  padding: 20px 40px 50px;
+  background: $color-bg-light;
+}
+
+// .block-faq {}
+
+.faq-item {
+  margin-bottom: 2px;
+  overflow: hidden;
+
+  &.active {
+    .faq-item__title {
+      background: #333365;
+      color: $color-text-light;
+    }
+
+    .faq-item__content {
+      max-height: 100%;
+    }
+  }
+
+  &__title {
+    padding: 10px 20px;
+    line-height: 1.5;
+    background: $color-bg-light;
+    cursor: pointer;
+    transition:
+      color            $transition-duration $transition-function,
+      background-color $transition-duration $transition-function;
+  }
+
+  &__content {
+    position: relative;
+    padding: 0 20px;
+    max-height: 0;
+    overflow: hidden;
+    border: 1px solid #dadada;
+    border-top: none;
+    border-bottom: none;
+    transition: max-height $transition-duration $transition-function;
+
+    &::after {
+      content: '';
+      display: block;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 1px;
+      background: #dadada;
+    }
+  }
+}
+
 .content-table {
   &__title {
     text-transform: uppercase;
@@ -1194,44 +1256,11 @@
   &__price {
     font-size: rem(24px);
     font-weight: bold;
+    white-space: nowrap;
   }
 }
 
-.lists {
-  @extend %row;
-
-  &__item {
-    @extend %col-12, %col-lg-6;
-  }
-
-  &__title {
-    font-weight: bold;
-    text-transform: uppercase;
-  }
-}
-
-.list-price {
-  @extend %row;
-
-  &__list {
-    @extend %col-12, %col-md-8, %col-lg-8;
-
-    font-size: rem(18px);
-    font-weight: bold;
-  }
-
-  &__price {
-    @extend %col-12, %col-md-4, %col-lg-4;
-  }
-}
-
-.table-block {
-  margin-bottom: 15px;
-  padding: 20px 40px 50px;
-  background: $color-bg-light;
-}
-
-.price-block {
+.price-caption {
   display: flex;
   padding: 20px 0;
   justify-content: center;

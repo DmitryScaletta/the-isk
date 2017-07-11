@@ -17,35 +17,39 @@ html(lang='ru')
         +breadcrumbs(['Услуги', 'Юридические услуги для компаний'])
         h2.section__title Банкротство
 
-        .list-price
-          .list-price__list
-            ul.list.list--no-markers
-              each x, i in [...Array(5)]
-                li
-                  a(href='#')= services.forPeople[i]
-          .list-price__price
-            .price-block
-              .price-block__content
-                .price-block__title Стоимость услуги
-                .price-block__price от 2500 ₽
-                .price-block__term 5-10 дней
+        .block.block-main-list
+          .block-main-list__list
+            .block
+              ul.list.list--no-markers
+                each x, i in [...Array(5)]
+                  li
+                    a(href='#')= services.forPeople[i]
+          .block-main-list__price
+            .block
+              .price-caption
+                .price-caption__content
+                  .price-caption__title Стоимость услуги
+                  .price-caption__price от 2500 ₽
+                  .price-caption__term 5-10 дней
 
+        .block.block-text
+          p= randomText.text[1]
 
-        p= randomText.text[1]
+        .block.block-layout
+          .block-layout__half
+            .block
+              h3.section__title Что входит в услугу?
+              ul.list
+                each item in lists[0]
+                  li= item
+          .block-layout__half
+            .block
+              h3.section__title Необходимые документы
+              ul.list.list--bright
+                each item in lists[1]
+                  li= item
 
-        .lists
-          .lists__item
-            h3.lists__title Что входит в услугу?
-            ul.list
-              each item in lists[0]
-                li= item
-          .lists__item
-            h3.lists__title Необходимые документы
-            ul.list.list--bright
-              each item in lists[1]
-                li= item
-
-        .table-block
+        .block.block-table
           table.table.content-table
             caption
               h3.content-table__title Дополнительные услуги
@@ -56,8 +60,8 @@ html(lang='ru')
                   td 
                     span.content-table__price 2500 ₽
 
-        h3.section__title Выигранные дела по регистрации ИП
-        .slider-portfolio
+        .block.block-slider.slider-portfolio
+          h3.section__title Выигранные дела по регистрации ИП
           img(src='//placehold.it/1140x430&text=Slider')
 
     section.section-promo.section

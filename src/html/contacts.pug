@@ -11,20 +11,20 @@ html(lang='ru')
         +breadcrumbs(['О нас', 'Контакты'])
 
         h2.section__title Контакты
-        .contacts
-          .contacts__text
+        .block.block-contacts
+          .block-contacts__text
             p Краснодар, Северная 490, 3 этаж, офис 301
             ul.phones-list
               each phone in contacts.phones
                 li.phones-list__item
                   a.phones-list__link(href='tel:' + phone.number)= phone.text
-            a.contacts__link(href='mailto:' + contacts.email)= contacts.email
+            a.block-contacts__link(href='mailto:' + contacts.email)= contacts.email
             nav.socials
               ul.socials__list
                 each social in socials
                   li.socials__item
                     a.socials__link.icon(class=social.icon, href=social.link)
-          .contacts__map
+          .block-contacts__map
             iframe(
               width="100%",
               height="100%",

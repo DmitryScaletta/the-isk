@@ -23,19 +23,21 @@ html(lang='ru')
           - var className = (i === 0) ? 'active' : ''
           span.slider-main__dot.js-dot(class=className)
 
-    section.section-text.section.section--padding
+    section.section
       .section__inner
-        h2.section__title.center= randomText.title
-        each text in randomText.text
-          p= text
+        .block.block-text
+          h2.section__title.center= randomText.title
+          each text in randomText.text
+            p= text
 
     include includes/features.pug
 
-    section.section-text.section.section--padding
+    section.section
       .section__inner
-        h3.section__title= randomText.title
-        each text in randomText.text
-          p= text
+        .block.block-text
+          h3.section__title= randomText.title
+          each text in randomText.text
+            p= text
 
     section.section-services
       .section-services__inner
@@ -90,11 +92,12 @@ html(lang='ru')
               .form__message= feedbackForm.warningMessage
               button.button.form__button= feedbackForm.submitLabel
 
-    section.section-text.section.section--padding
+    section.section
       .section__inner
-        h4= randomText.title
-        each text in randomText.text
-          p= text
+        .block.block-text
+          h4= randomText.title
+          each text in randomText.text
+            p= text
     
     section.section-some-news.section.section--padding
       .section__inner
