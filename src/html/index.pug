@@ -6,8 +6,8 @@ html(lang='ru')
   body
     include includes/header.pug
 
-    section.main-slider
-      .main-slider__items
+    section.slider-main
+      .slider-main__items
         each slide, i in sliders.mainSlider
           - var style = 'background-image: url("img/media/' + slide.image + '")'
           - var className = (i === 0) ? 'active' : ''
@@ -18,10 +18,10 @@ html(lang='ru')
                 span.main-slide__subtitle= slide.subtitle
                 span.main-slide__desc= slide.desc
                 a.button.main-slide__button(href='#')= slide.buttonLabel
-      .main-slider__controls
+      .slider-main__controls
         each slide, i in sliders.mainSlider
           - var className = (i === 0) ? 'active' : ''
-          span.main-slider__dot.js-dot(class=className)
+          span.slider-main__dot.js-dot(class=className)
 
     section.section-text.section.section--padding
       .section__inner
