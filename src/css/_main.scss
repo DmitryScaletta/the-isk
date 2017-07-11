@@ -101,11 +101,11 @@
 
   &__mobile {
     display: flex;
-    justify-content: space-between;
-    line-height: 50px;
     margin: 0 auto;
-    padding: 15px 0;
+    justify-content: space-between;
+    align-items: center;
     width: 100%;
+    overflow: hidden;
 
     @media (min-width: $screen-sm) {
       width: $container-max-sm;
@@ -125,15 +125,26 @@
       text-transform: uppercase;
     }
 
-    // &-button-wrapper {}
+    &-button-wrapper {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
 
     &-button {
+      @extend .icon;
+
+      padding: 5px 10px;
       color: $color-text-light;
       font-size: 30px;
       cursor: pointer;
 
       &::after {
-        content: '☰';
+        content: $icon-navicon;
+      }
+
+      &.opened::after {
+        content: $icon-close;
       }
     }
   }
