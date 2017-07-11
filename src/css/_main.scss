@@ -1033,6 +1033,7 @@
 
 .faq-item {
   margin-bottom: 2px;
+  overflow: hidden;
 
   &.active {
     .faq-item__title {
@@ -1041,7 +1042,8 @@
     }
 
     .faq-item__content {
-      display: block;
+      // display: block;
+      max-height: 100%;
     }
   }
 
@@ -1050,13 +1052,31 @@
     line-height: 1.5;
     background: $color-bg-light;
     cursor: pointer;
+    transition:
+      color            $transition-duration $transition-function,
+      background-color $transition-duration $transition-function;
   }
 
   &__content {
-    display: none;
-    padding: 10px 20px;
+    position: relative;
+    padding: 0 20px;
+    max-height: 0;
+    overflow: hidden;
     border: 1px solid #dadada;
     border-top: none;
+    border-bottom: none;
+    transition: max-height $transition-duration $transition-function;
+
+    &::after {
+      content: '';
+      display: block;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 1px;
+      background: #dadada;
+    }
   }
 }
 

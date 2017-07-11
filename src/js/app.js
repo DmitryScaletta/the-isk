@@ -78,3 +78,43 @@
     item => item.addEventListener('click', toggleMenu),
   );
 })();
+
+
+// faq accordion
+(() => {
+  const faqContainer = document.querySelector('.js-faq-items');
+  if (faqContainer === null) return;
+
+  const items    = faqContainer.getElementsByClassName('js-faq-item');
+  const titles   = Array.prototype.map.call(items, item => item.querySelector('.js-faq-title'));
+  const contents = Array.prototype.map.call(items, item => item.querySelector('.js-faq-content'));
+
+  const activeClass = 'active';
+
+  const setMaxHeight = (index) => {
+    const content = contents[index];
+    content.style.maxHeight = items[index].classList.contains(activeClass)
+      ? `${content.scrollHeight}px`
+      : null;
+  };
+
+  const setAllMaxHeights = () => [...Array(items.length)].forEach((_, i) => setMaxHeight(i));
+
+  const removeAllActiveItems = () => {
+    Array.prototype.forEach.call(items, item => item.classList.remove(activeClass));
+    setAllMaxHeights();
+  };
+
+  const setActiveItem = (index) => {
+    removeAllActiveItems();
+    items[index].classList.toggle(activeClass);
+    setMaxHeight(index);
+  };
+
+  document.addEventListener('DOMContentLoaded', setAllMaxHeights);
+
+  titles.forEach((title, index) => {
+    if (title === null) return;
+    title.addEventListener('click', setActiveItem.bind(null, index));
+  });
+})();

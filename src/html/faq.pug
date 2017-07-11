@@ -13,12 +13,12 @@ html(lang='ru')
         h2.section__title Вопрос-ответ
         .section__content
           .section-faq__block
-            .faq-items
+            .faq-items.js-faq-items
               each item, i in faq
                 - var className = (i === 0) ? 'active' : '';
-                .faq-item(class=className)
-                  .faq-item__title= item
-                  .faq-item__content
+                .faq-item.js-faq-item(class=className)
+                  .faq-item__title.js-faq-title= item
+                  .faq-item__content.js-faq-content
                     each text in randomText.text
                       p= text
             
