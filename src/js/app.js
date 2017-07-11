@@ -1,3 +1,24 @@
+// floating button
+(() => {
+  const floatingButton = document.querySelector('.js-floating-button');
+  if (floatingButton === null) return;
+
+  const visibleClass = 'visible';
+
+  const handleFloatingButton = () => {
+    const isHidden = window.pageYOffset < 250;
+    if (isHidden) {
+      floatingButton.classList.remove(visibleClass);
+    } else {
+      floatingButton.classList.add(visibleClass);
+    }
+  };
+
+  window.addEventListener('load',   handleFloatingButton);
+  window.addEventListener('scroll', handleFloatingButton);
+})();
+
+
 // main slider
 (() => {
   const SLIDER_INTERVAL = 4000;

@@ -1262,14 +1262,13 @@
   }
 }
 
-.floating-link {
+.floating-button {
   @extend .icon;
 
   display: none;
-  // display: block;
   position: fixed;
-  right: 50px;
-  bottom: 50px;
+  right: 100px;
+  bottom: 150px;
   width: 80px;
   height: 80px;
   line-height: 80px;
@@ -1279,14 +1278,38 @@
   background: #7a0727;
   transform: rotate(45deg);
   cursor: pointer;
+  transition: background-color $transition-duration $transition-function;
+  animation: pulse 4s infinite;
+
+  &.visible {
+    @media (min-width: 1580px) {
+      display: block;
+    }
+  }
 
   &:hover {
-    color: $color-secondary;
+    color: darken($color-text-light, 10%);
+    background: $color-primary;
+    animation: none;
   }
 
   &::after {
     content: $icon-mobile;
     display: block;
     transform: rotate(-45deg);
+  }
+}
+
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba($color-text-dark, 0.4);
+  }
+
+  35% {
+    box-shadow: 0 0 0 15px rgba($color-text-dark, 0);
+  }
+
+  50% {
+    box-shadow: 0 0 0 0 rgba($color-text-dark, 0);
   }
 }
