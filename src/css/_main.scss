@@ -316,6 +316,7 @@
 .main-slider {
   position: relative;
   margin-top: -2px;
+  background: #fff;
 
   &__items {
     position: relative;
@@ -340,8 +341,8 @@
     background: $color-secondary;
     cursor: pointer;
     transition:
-      background-color 0.5s $transition-function,
-      transform        0.5s $transition-function;
+      background-color $transition-duration $transition-function,
+      transform        $transition-duration $transition-function;
 
     &:hover,
     &.active {
