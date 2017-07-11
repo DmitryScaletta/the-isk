@@ -23,6 +23,16 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+.icon-close {
+  &:before {
+    content: $icon-close;
+  }
+}
+.icon-navicon {
+  &:before {
+    content: $icon-navicon;
+  }
+}
 .icon-mobile {
   &:before {
     content: $icon-mobile;
@@ -48,4 +58,3 @@
     content: $icon-odnoklassniki;
   }
 }
-
