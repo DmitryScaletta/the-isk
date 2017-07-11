@@ -17,14 +17,14 @@ html(lang='ru')
         +breadcrumbs(['Услуги', 'Юридические услуги для компаний'])
         h2.section__title Банкротство
 
-        .block.block-main-list
-          .block-main-list__list
+        .block.block-layout
+          .block-layout__service-list
             .block
               ul.list.list--no-markers
                 each x, i in [...Array(5)]
                   li
                     a(href='#')= services.forPeople[i]
-          .block-main-list__price
+          .block-layout__service-price
             .block
               .price-caption
                 .price-caption__content
