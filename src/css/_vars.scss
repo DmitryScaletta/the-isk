@@ -47,3 +47,18 @@ $icon-instagram: "\f16d";
 $icon-vk: "\f189";
 $icon-whatsapp: "\f232";
 $icon-odnoklassniki: "\f263";
+
+// font-size
+$default-font-size: 16;
+
+@function strip-unit($number) {
+  @if type-of($number) == 'number' and not unitless($number) {
+    @return $number / ($number * 0 + 1);
+  }
+
+  @return $number;
+}
+
+@function rem($pixels, $context: $default-font-size) {
+  @return #{strip-unit($pixels)/$context}rem;
+}
