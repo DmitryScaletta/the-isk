@@ -320,17 +320,31 @@
 
   &__items {
     position: relative;
-    height: 500px;
+    height: 350px;
     overflow: hidden;
+
+    @media (min-width: $screen-sm) {
+      padding-bottom: 30px;
+      height: 400px;
+    }
+
+    @media (min-width: $screen-md) {
+      padding-bottom: 100px;
+      height: 500px;
+    }
   }
 
   &__controls {
-    display: flex;
+    display: none;
     position: absolute;
     z-index: 2;
     width: 100%;
     bottom: 34px;
     justify-content: center;
+
+    @media (min-width: $screen-md) {
+      display: flex;
+    }
   }
 
   &__dot {
@@ -356,7 +370,7 @@
   display: flex;
   position: absolute;
   width: 100%;
-  height: 500px;
+  height: 100%;
   align-items: center;
   background-position: center;
   background-repeat: no-repeat;
@@ -407,9 +421,13 @@
 
   &__desc {
     display: block;
-    padding: 13px 0 40px;
+    padding: 5px 0;
     line-height: 1.4;
     font-size: 18px;
+
+    @media (min-width: $screen-sm) {
+      padding: 13px 0 40px;
+    }
   }
 
   &__button {
@@ -426,15 +444,26 @@
 }
 
 .section-image {
+  position: relative;
   margin-top: -2px;
+  z-index: 1;
 
   &__content {
     display: flex;
-    padding-bottom: 100px;
     flex-direction: column;
     justify-content: center;
-    height: 500px;
+    height: 350px;
     line-height: 1.4;
+
+    @media (min-width: $screen-sm) {
+      padding-bottom: 30px;
+      height: 400px;
+    }
+
+    @media (min-width: $screen-md) {
+      padding-bottom: 100px;
+      height: 500px;
+    }
   }
 
   &__title {
@@ -1255,7 +1284,7 @@
     display: flex;
     padding-top: 15px;
     margin-left: 10px;
-    min-width: 180px;
+    min-width: 200px;
     justify-content: space-between;
     align-items: center;
     flex-grow: 1;
