@@ -851,13 +851,11 @@
 .news-preview-item {
   @extend %col-12, %col-lg-6;
 
-  &__link {
-    color: $color-text-dark;
-  }
+  display: flex;
 
-  &__title {
-    margin: 0;
-    line-height: 1.25;
+  &__picture {
+    min-width: 215px;
+    padding-right: 30px;
   }
 
   &__image-wrapper {
@@ -886,12 +884,41 @@
   &__date {
     display: block;
     line-height: 50px;
-    // text-align: right;
+    text-align: right;
+  }
+
+  &__text {
+    padding-top: 15px;
+    // overflow: hidden;
+  }
+
+  &__title {
+    margin: 0;
+    padding: 20px 0;
+    line-height: 1.25;
+  }
+
+  &__link {
+    color: $color-text-dark;
   }
 
   &__desc {}
 
-  &__read-more {}
+  &__read-more {
+    display: block;
+    position: relative;
+    padding: 15px 0;
+
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 50px;
+      height: 2px;
+      background: #9c2838;
+    }
+  }
 }
 
 .section-faq {
