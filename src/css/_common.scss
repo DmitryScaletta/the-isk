@@ -59,8 +59,8 @@ img {
     border-color $transition-duration $transition-function;
 
   &:hover {
-    color: $color-primary-dark;
-    border-color: $color-primary-dark;
+    color: lighten($color-primary, 10%);
+    border-color: lighten($color-primary, 10%);
   }
 
   &--dark {
