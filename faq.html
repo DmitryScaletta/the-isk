@@ -73,7 +73,7 @@
       </div>
     </div>
   </header>
-  <section class="section section-faq">
+  <section class="section">
     <div class="section__inner">
       <nav class="breadcrumbs">
         <ul class="breadcrumbs__list">
@@ -85,9 +85,9 @@
         </ul>
       </nav>
       <h2 class="section__title">Вопрос-ответ</h2>
-      <div class="section__content">
-        <div class="section-faq__block">
-          <div class="faq-items js-faq-items">
+      <div class="block block-layout">
+        <div class="block-layout__half">
+          <div class="block block-faq js-faq-items">
             <div class="faq-item js-faq-item active">
               <div class="faq-item__title js-faq-title">Имею ли я право на налоговый вычет?</div>
               <div class="faq-item__content js-faq-content">
@@ -121,27 +121,31 @@
               </div>
             </div>
           </div>
-          <form class="form form--borders" action="#">
-            <div class="form__group">
-              <label class="form__label">Ваше имя:</label>
-              <input class="form__input" type="text" name="name" placeholder="Магдалена">
-            </div>
-            <div class="form__group">
-              <label class="form__label">Телефон или почта:</label>
-              <input class="form__input" type="text" name="tel" placeholder="name@mail.com">
-            </div>
-            <div class="form__group">
-              <label class="form__label">Опишите ситуацию</label>
-              <textarea class="form__input form__textarea" name="message"></textarea>
-            </div>
-            <div class="form__bottom">
-              <div class="form__message">Отправляя форму, вы соглашаетесь на обработку персональных данных</div>
-              <button class="button form__button">Отправить</button>
-            </div><span class="form__info">Или задайте свой вопрос на почту <a href="mailto:info@theisk.ru">info@theisk.ru</a></span>
-          </form>
+          <div class="block">
+            <form class="form form--borders" action="#">
+              <div class="form__group">
+                <label class="form__label">Ваше имя:</label>
+                <input class="form__input" type="text" name="name" placeholder="Магдалена">
+              </div>
+              <div class="form__group">
+                <label class="form__label">Телефон или почта:</label>
+                <input class="form__input" type="text" name="tel" placeholder="name@mail.com">
+              </div>
+              <div class="form__group">
+                <label class="form__label">Опишите ситуацию</label>
+                <textarea class="form__input form__textarea" name="message"></textarea>
+              </div>
+              <div class="form__bottom">
+                <div class="form__message">Отправляя форму, вы соглашаетесь на обработку персональных данных</div>
+                <button class="button form__button">Отправить</button>
+              </div><span class="form__info">Или задайте свой вопрос на почту <a href="mailto:info@theisk.ru">info@theisk.ru</a></span>
+            </form>
+          </div>
         </div>
-        <div class="section-faq__block">
-          <img src="//placehold.it/555x900">
+        <div class="block-layout__half">
+          <div class="block">
+            <img src="//placehold.it/555x900">
+          </div>
         </div>
       </div>
     </div>
