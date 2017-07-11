@@ -71,10 +71,8 @@
     right: 0;
     align-items: center;
     justify-content: center;
-    background: #292931;
+    background: $color-bg-dark;
     height: 50px;
-
-    // @media (min-width: $screen-sm) {}
 
     @media (min-width: $screen-lg) {
       position: static;
@@ -162,8 +160,8 @@
   top: 100%;
   left: 0;
   right: 0;
-  border-top: 1px solid lighten(#292931, 10%);
-  background: #292931;
+  border-top: 1px solid lighten($color-bg-dark, 10%);
+  background: $color-bg-dark;
 
   &.opened {
     display: block;
@@ -299,7 +297,7 @@
   // &__item {}
 
   &__link {
-    color: #808080;
+    color: $color-text-soft;
 
     &::before {
       @extend .icon;
@@ -593,7 +591,7 @@
     }
 
     &--gray {
-      background: #ebf0f2;
+      background: $color-bg-light;
     }
 
     &:first-child {
@@ -719,14 +717,14 @@
     top: -3px;
     font-size: 14px;
     text-align: right;
-    color: #909090;
+    color: $color-text-soft;
   }
 }
 
 .section-promo {
   padding: 18px 0;
   color: $color-text-light;
-  background: #9c2838;
+  background: $color-primary-dark;
   line-height: 1.4;
 
   &__title {
@@ -745,7 +743,7 @@
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  background-color: #ebf0f2;
+  background-color: $color-bg-light;
 
   &--image-1 {
     @media (min-width: $screen-lg) {
@@ -850,7 +848,7 @@
   &__message {
     font-size: 13px;
     line-height: 1.4;
-    color: #909090;
+    color: $color-text-soft;
 
     @media (min-width: $screen-sm) {
       padding-right: 50px;
@@ -877,7 +875,7 @@
 }
 
 .section-some-news {
-  background: #ebf0f2;
+  background: $color-bg-light;
 }
 
 .news-preview-item {
@@ -970,7 +968,7 @@
     left: 0;
     width: 50px;
     height: 2px;
-    background: #9c2838;
+    background: $color-primary-dark;
   }
 }
 
@@ -988,7 +986,7 @@
     left: 0;
     height: 165px;
     width: 165px;
-    background: #9c2838;
+    background: $color-primary-dark;
   }
 
   &__image {
@@ -1026,7 +1024,7 @@
   &__title {
     padding: 10px 20px;
     line-height: 1.5;
-    background: #ebf0f2;
+    background: $color-bg-light;
     cursor: pointer;
   }
 
@@ -1060,7 +1058,7 @@
   &__link {
     display: inline-block;
     padding: 15px 0;
-    color: #808080;
+    color: $color-text-soft;
   }
 }
 
@@ -1088,7 +1086,7 @@
     padding: 0 20px;
     justify-content: space-between;
     height: 100%;
-    background: #ebf0f2;
+    background: $color-bg-light;
     color: $color-text-dark;
 
     @media (min-width: $screen-md) {
@@ -1172,14 +1170,14 @@
 .table-block {
   margin-bottom: 15px;
   padding: 20px 40px 50px;
-  background: #ebf0f2;
+  background: $color-bg-light;
 }
 
 .price-block {
   display: flex;
   padding: 20px 0;
   justify-content: center;
-  background: #ebf0f2;
+  background: $color-bg-light;
 
   // &__content {}
 
@@ -1196,13 +1194,13 @@
   }
 
   &__term {
-    color: #909090;
+    color: $color-text-soft;
   }
 }
 
 .footer {
-  color: #808080;
-  background: #292931;
+  color: $color-text-soft;
+  background: $color-bg-dark;
 
   &__for-companies {
     @extend %col-12, %col-md-6, %col-xl-3;
@@ -1340,7 +1338,7 @@
 
   &__link {
     display: inline-block;
-    color: #818181;
+    color: $color-text-soft;
   }
 }
 
@@ -1378,7 +1376,7 @@
   font-size: 50px;
   text-align: center;
   color: $color-text-light;
-  background: #7a0727;
+  background: darken($color-primary-dark, 10%);
   transform: rotate(45deg);
   cursor: pointer;
   transition: background-color $transition-duration $transition-function;
@@ -1392,7 +1390,7 @@
 
   &:hover {
     color: darken($color-text-light, 10%);
-    background: $color-primary;
+    background: darken($color-primary-dark, 7%);
     animation: none;
   }
 
