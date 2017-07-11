@@ -1193,8 +1193,16 @@
 }
 
 .block-table {
-  padding: 20px 40px 50px;
+  padding: 10px 15px 40px;
   background: $color-bg-light;
+
+  @media (min-width: $screen-sm) {
+    padding: 15px 25px 45px;
+  }
+
+  @media (min-width: $screen-md) {
+    padding: 20px 40px 50px;
+  }
 }
 
 // .block-faq {}
