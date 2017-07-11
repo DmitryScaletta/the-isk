@@ -47,6 +47,11 @@ img {
     color        $transition-duration $transition-function,
     border-color $transition-duration $transition-function;
 
+  &:hover {
+    color: $color-primary-dark;
+    border-color: $color-primary-dark;
+  }
+
   &--dark {
     color: $color-text-dark;
     border-color: $color-text-dark;
@@ -57,9 +62,9 @@ img {
     border-color: $color-text-light;
   }
 
-  &--gray {
-    color: #909090;
-    border-color: #909090;
+  &--soft {
+    color: $color-text-soft;
+    border-color: $color-text-soft;
   }
 }
 
