@@ -1077,7 +1077,7 @@
     font-size: inherit;
     font-family: inherit;
     color: $color-text-dark;
-    transition-property: color, border-color;
+    transition-property: color, border-color, background-color;
 
     &:focus {
       border-color: $color-primary;

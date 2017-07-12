@@ -1,3 +1,4 @@
+import Tooltip from 'tooltip.js';
 import { lory } from 'lory.js';
 
 
@@ -137,4 +138,49 @@ import { lory } from 'lory.js';
     if (title === null) return;
     title.addEventListener('click', setActiveItem.bind(null, index));
   });
+})();
+
+
+// form validation
+(() => {
+  Array.prototype.forEach.call(
+    document.querySelectorAll('.form'),
+    (form) => {
+      const validatedItems = [
+        form.querySelector('input[name=name]'),
+        form.querySelector('input[name=tel]'),
+        form.querySelector('textarea[name=message]'),
+      ];
+
+      const tooltips = validatedItems.map(item => new Tooltip(item, {
+        title: 'Это обязательное поле',
+        trigger: '',
+      }));
+
+      const inputInvalidClass = 'invalid';
+
+      // remove invalid class on focus
+      validatedItems.forEach((elem, index) => {
+        elem.addEventListener('focus', () => {
+          if (elem.classList.contains(inputInvalidClass)) elem.classList.remove(inputInvalidClass);
+          tooltips[index].hide();
+        });
+      });
+
+      const validateTextInput = value => value.trim() !== '';
+
+      form.addEventListener('submit', (e) => {
+        const isFormValid = validatedItems.every((item, index) => {
+          const isItemValid = validateTextInput(item.value);
+          if (!isItemValid) {
+            item.classList.add(inputInvalidClass);
+            tooltips[index].show();
+          }
+          return isItemValid;
+        });
+
+        if (!isFormValid) e.preventDefault();
+      });
+    },
+  );
 })();
