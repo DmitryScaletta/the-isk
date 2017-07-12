@@ -71,15 +71,15 @@
   const menuContainer = document.querySelector('.js-menu');
   if (menuContainer === null) return;
 
-  const openedClass = 'opened';
+  const isActiveClass = 'is-active';
 
-  const toggleMenu = () => menuContainer.classList.toggle(openedClass);
+  const toggleMenu = () => menuContainer.classList.toggle(isActiveClass);
 
   Array.prototype.forEach.call(
     document.getElementsByClassName('js-toggle-menu'),
     item => item.addEventListener('click', () => {
       toggleMenu();
-      item.classList.toggle(openedClass);
+      item.classList.toggle(isActiveClass);
     }),
   );
 })();

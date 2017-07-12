@@ -18,7 +18,9 @@ header.header
         .header__mobile
           .header__mobile-title Меню
           .header__mobile-button-wrapper
-            a.header__mobile-button.js-toggle-menu
+            button.hamburger.hamburger--squeeze.js-toggle-menu(type='button')
+              span.hamburger-box
+                span.hamburger-inner
       .header__phones
         ul.phones-list.phones-list--big
           each phone in contacts.phones
