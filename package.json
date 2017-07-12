@@ -30,6 +30,7 @@
     "stylelint-config-standard": "^16.0.0"
   },
   "dependencies": {
+    "hamburgers": "^0.9.1",
     "normalize.css": "^7.0.0"
   }
 }
