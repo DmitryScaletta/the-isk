@@ -4,7 +4,7 @@ mixin news-preview-item(newsItem, text, readMore = true)
     .news-preview-item__image
       a.news-preview-item__link(href=link)
         .shadow-image
-          img.shadow-image__image(src='img/media/news/' + newsItem.image, alt='')
+          img.shadow-image__image(src='img/media/' + newsItem.image, alt='')
       span.news-preview-item__date= newsItem.date
     .news-preview-item__text
       a.news-preview-item__link(href=link)
