@@ -19,7 +19,8 @@ html(lang='ru')
                 .faq-item.js-faq-item(class=className)
                   .faq-item__title.js-faq-title= item
                   .faq-item__content.js-faq-content
-                    each text in randomText.text
+                    - var content = (i % 2 === 0) ? randomText.text : [randomText.text[1]]
+                    each text in content
                       p= text
             .block
               form.form.form--borders(action='#')
