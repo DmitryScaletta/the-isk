@@ -8,7 +8,7 @@ html(lang='ru')
 
     section.slider-main
       .slider-main__items
-        each slide, i in sliders.mainSlider
+        each slide, i in sliders.main
           - var style = 'background-image: url("img/media/' + slide.image + '")'
           - var className = (i === 0) ? 'active' : ''
           .main-slide.js-slide(style=style, class=className)
@@ -19,7 +19,7 @@ html(lang='ru')
                 span.main-slide__desc= slide.desc
                 a.button.main-slide__button(href='#')= slide.buttonLabel
       .slider-main__controls
-        each slide, i in sliders.mainSlider
+        each slide, i in sliders.main
           - var className = (i === 0) ? 'active' : ''
           span.slider-main__dot.js-dot(class=className)
 
