@@ -60,9 +60,31 @@ html(lang='ru')
                   td 
                     span.content-table__price 2500 ₽
 
-        .block.block-slider.slider-portfolio
+        .block.block-slider
           h3.section__title Выигранные дела по регистрации ИП
-          img(src='//placehold.it/1140x430&text=Slider')
+          -
+            var slides = [
+              ...sliders.portfolio,
+              ...[sliders.portfolio[1], sliders.portfolio[2], sliders.portfolio[0]],
+              ...[sliders.portfolio[2], sliders.portfolio[0], sliders.portfolio[1]],
+            ];
+          .slider.slider-portfolio.js_slider
+            .slider__frame.js_frame
+              .slider__items.js_slides
+                each slide in slides
+                  .slider__item.slider-item
+                    .shadow-slide
+                      .shadow-slide__content
+                        .shadow-slide__title= slide.title
+                        .shadow-slide__text
+                          span.shadow-slide__subtitle= slide.content[0]
+                          br
+                          = slide.content[1]
+                          br
+                          span.shadow-slide__price= slide.content[2]
+                        a(href='#').button.button--soft.shadow-slide__button Посмотреть детали
+            span.slider__prev.js_prev
+            span.slider__next.js_next
 
     section.section-promo.section
       .section__inner

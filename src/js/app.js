@@ -1,3 +1,6 @@
+import { lory } from 'lory.js';
+
+
 // floating button
 (() => {
   const floatingButton = document.querySelector('.js-floating-button');
@@ -16,6 +19,25 @@
 
   window.addEventListener('load',   handleFloatingButton);
   window.addEventListener('scroll', handleFloatingButton);
+})();
+
+
+// mobile menu
+(() => {
+  const menuContainer = document.querySelector('.js-menu');
+  if (menuContainer === null) return;
+
+  const isActiveClass = 'is-active';
+
+  const toggleMenu = () => menuContainer.classList.toggle(isActiveClass);
+
+  Array.prototype.forEach.call(
+    document.getElementsByClassName('js-toggle-menu'),
+    item => item.addEventListener('click', () => {
+      toggleMenu();
+      item.classList.toggle(isActiveClass);
+    }),
+  );
 })();
 
 
@@ -66,20 +88,14 @@
 })();
 
 
-// mobile menu
+// sliders
 (() => {
-  const menuContainer = document.querySelector('.js-menu');
-  if (menuContainer === null) return;
-
-  const isActiveClass = 'is-active';
-
-  const toggleMenu = () => menuContainer.classList.toggle(isActiveClass);
-
   Array.prototype.forEach.call(
-    document.getElementsByClassName('js-toggle-menu'),
-    item => item.addEventListener('click', () => {
-      toggleMenu();
-      item.classList.toggle(isActiveClass);
+    document.getElementsByClassName('js_slider'),
+    sliderContainer => lory(sliderContainer, {
+      infinite: 3,
+      slidesToScroll: 3,
+      enableMouseEvents: true,
     }),
   );
 })();

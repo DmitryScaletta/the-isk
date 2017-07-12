@@ -24,8 +24,26 @@ html(lang='ru')
                   img.block-menu__image(src='img/' + item.image)
                 figcaption.block-menu__caption= item.text
 
-        .block.block-slider.slider-team
+        .block.block-slider
           h3.section__title Наша команда
-          img(src='//placehold.it/1140x430&text=Slider')
+          -
+            var slides = [
+              ...sliders.team,
+              ...[sliders.team[1], sliders.team[2], sliders.team[0]],
+              ...[sliders.team[2], sliders.team[0], sliders.team[1]],
+            ];
+          .slider.slider-team.js_slider
+            .slider__frame.js_frame
+              .slider__items.js_slides
+                each slide in slides
+                  figure.slider__item.slider-item
+                    .shadow-slide
+                      .shadow-slide__image-wrapper
+                        img(src='img/media/' + slide.image, alt='')
+                    figcaption.slider-item__caption
+                      .slider-item__name= slide.name
+                      .slider-item__position= slide.position
+            span.slider__prev.js_prev
+            span.slider__next.js_next
 
     include includes/footer.pug
