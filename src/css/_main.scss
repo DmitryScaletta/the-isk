@@ -1124,6 +1124,7 @@
 
   &__button {
     margin-top: 15px;
+    min-height: rem(46px);
 
     @media (min-width: $screen-sm) {
       flex-basis: 140px;
