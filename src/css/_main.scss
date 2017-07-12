@@ -474,16 +474,16 @@
     display: block;
     position: absolute;
     top: 0;
-    height: 270px + 30px;
+    height: 333px + 20px;
     width: 30px;
     cursor: pointer;
 
-    @media (min-width: $screen-md) {
-      height: 400px + 30px;
+    @media (min-width: $screen-sm) {
+      height: 400px + 20px;
     }
 
     @media (min-width: $screen-lg) {
-      height: 270px + 30px;
+      height: 360px + 20px;
     }
 
     @media (min-width: $screen-xl) {
@@ -496,13 +496,17 @@
       content: '';
       display: block;
       position: absolute;
-      margin-top: -9px + 30px;
+      margin-top: -9px + 20px;
       top: 50%;
       width: 0;
       height: 0;
       border-style: solid;
       border-color: transparent;
       transition-property: border-color;
+
+      @media (min-width: $screen-xl) {
+        margin-top: -9px + 30px;
+      }
     }
   }
 
