@@ -93,8 +93,7 @@ import { lory } from 'lory.js';
   Array.prototype.forEach.call(
     document.getElementsByClassName('js_slider'),
     sliderContainer => lory(sliderContainer, {
-      infinite: 3,
-      slidesToScroll: 3,
+      slidesToScroll: 1,
       enableMouseEvents: true,
     }),
   );

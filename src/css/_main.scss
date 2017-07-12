@@ -439,11 +439,22 @@
 
   &__frame {
     position: relative;
-    margin: 0 30px;
     font-size: 0;
     line-height: 0;
     overflow: hidden;
     white-space: nowrap;
+
+    @media (min-width: $screen-sm) {
+      margin: 0 20px;
+    }
+
+    @media (min-width: $screen-lg) {
+      margin: 0 24px;
+    }
+
+    @media (min-width: $screen-xl) {
+      margin: 0 30px;
+    }
   }
 
   &__items {
@@ -463,9 +474,21 @@
     display: block;
     position: absolute;
     top: 0;
-    height: 430px;
+    height: 270px + 30px;
     width: 30px;
     cursor: pointer;
+
+    @media (min-width: $screen-md) {
+      height: 400px + 30px;
+    }
+
+    @media (min-width: $screen-lg) {
+      height: 270px + 30px;
+    }
+
+    @media (min-width: $screen-xl) {
+      height: 400px + 30px;
+    }
 
     &::after {
       @extend %transition;
@@ -484,7 +507,11 @@
   }
 
   &__prev {
-    left: 0;
+    left: -12px;
+
+    @media (min-width: $screen-sm) {
+      left: 0;
+    }
 
     &::after {
       left: 0;
@@ -498,7 +525,11 @@
   }
 
   &__next {
-    right: 0;
+    right: -12px;
+
+    @media (min-width: $screen-sm) {
+      right: 0;
+    }
 
     &::after {
       right: 0;
@@ -515,14 +546,28 @@
 .shadow-slide {
   display: inline-block;
   position: relative;
-  margin: 0 30px 30px 0;
+  margin: 0 20px 20px 0;
   background: $color-secondary;
+  text-align: left;
+
+  @media (min-width: $screen-lg) {
+    margin: 0 20px 20px 0;
+  }
+
+  @media (min-width: $screen-xl) {
+    margin: 0 30px 30px 0;
+  }
 
   &__image-wrapper,
   &__content {
     position: relative;
-    top: 30px;
-    left: 30px;
+    top: 20px;
+    left: 20px;
+
+    @media (min-width: $screen-xl) {
+      top: 30px;
+      left: 30px;
+    }
   }
 
   &__image-wrapper {
@@ -531,9 +576,25 @@
 
   &__content {
     padding: 15px 30px;
-    width: 300px;
-    height: 400px;
+    width: 250px;
+    height: 333px;
     background: $color-bg-light;
+
+    @media (min-width: $screen-sm) {
+      width: 300px;
+      height: 400px;
+    }
+
+    @media (min-width: $screen-lg) {
+      width: 270px;
+      height: 360px;
+    }
+
+    @media (min-width: $screen-xl) {
+      padding: 15px 30px;
+      width: 300px;
+      height: 400px;
+    }
   }
 
   &__title {
@@ -555,10 +616,25 @@
   }
 
   &__text {
-    padding-top: 80px;
-    height: 215px;
+    padding-top: 50px;
+    height: 170px;
     font-size: rem(18px);
     line-height: 1.33;
+
+    @media (min-width: $screen-sm) {
+      padding-top: 80px;
+      height: 215px;
+    }
+
+    @media (min-width: $screen-lg) {
+      padding-top: 60px;
+      height: 185px;
+    }
+
+    @media (min-width: $screen-xl) {
+      padding-top: 80px;
+      height: 215px;
+    }
   }
 
   &__subtitle {
@@ -573,17 +649,37 @@
     text-transform: uppercase;
   }
 
-  &__button {}
+  // &__button {}
 }
 
 .slider-item {
   margin: 0;
-  padding: 0 15px;
-  width: 330px + 15px * 2;
+  padding: 0 10px;
+  width: 270px + 20px;
+  text-align: center;
+
+  @media (min-width: $screen-sm) {
+    width: 480px + 20px;
+  }
+
+  @media (min-width: $screen-md) {
+    width: 320px + 20px;
+  }
+
+  @media (min-width: $screen-lg) {
+    padding: 0 7px;
+    width: 290px + 14px;
+  }
+
+  @media (min-width: $screen-xl) {
+    padding: 0 15px;
+    width: 330px + 30px;
+  }
 
   &__caption {
     margin: 30px 0 0 30px;
     font-size: rem(18px);
+    text-align: left;
   }
 
   &__name {
