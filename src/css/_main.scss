@@ -1169,7 +1169,7 @@
 
   &__date {
     display: block;
-    line-height: 50px;
+    padding: 12px 0;
 
     @media (min-width: $screen-md) {
       text-align: right;
