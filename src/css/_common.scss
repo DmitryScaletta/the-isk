@@ -9,7 +9,22 @@
 
 %transition {
   transition-timing-function: $transition-function;
-  transition-duration:        $transition-duration;
+  transition-duration: $transition-duration;
+}
+
+%bottom-line {
+  position: relative;
+
+  &::after {
+    content: '';
+    display: block;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 2px;
+    width: 50px;
+    background: $color-primary;
+  }
 }
 
 html {
@@ -119,4 +134,3 @@ img {
     color: $color-text-dark;
   }
 }
-
