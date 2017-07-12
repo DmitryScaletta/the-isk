@@ -31,6 +31,7 @@
   },
   "dependencies": {
     "hamburgers": "^0.9.1",
+    "lory.js": "^2.2.1",
     "normalize.css": "^7.0.0"
   }
 }
