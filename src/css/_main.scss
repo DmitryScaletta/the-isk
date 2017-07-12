@@ -344,15 +344,15 @@
   }
 
   &__dot {
+    @extend %transition;
+
     display: block;
     margin: 0 7px;
     width: 10px;
     height: 10px;
     background: $color-secondary;
     cursor: pointer;
-    transition:
-      background-color $transition-duration $transition-function,
-      transform        $transition-duration $transition-function;
+    transition-property: background-color, transform;
 
     &:hover,
     &.active {
@@ -363,6 +363,8 @@
 }
 
 .main-slide {
+  @extend %transition;
+
   display: flex;
   position: absolute;
   width: 100%;
@@ -371,7 +373,8 @@
   background-position: center;
   background-repeat: no-repeat;
   opacity: 0;
-  transition: opacity 0.5s $transition-function;
+  transition-duration: 0.5s;
+  transition-property: opacity;
 
   &.active {
     z-index: 1;
@@ -819,6 +822,8 @@
   }
 
   &__input {
+    @extend %transition;
+
     padding: 7px 14px;
     width: 100%;
     border: 1px solid transparent;
@@ -826,9 +831,7 @@
     font-size: inherit;
     font-family: inherit;
     color: $color-text-dark;
-    transition:
-      color        $transition-duration $transition-function,
-      border-color $transition-duration $transition-function;
+    transition-property: color, border-color;
 
     &:focus {
       border-color: $color-primary;
@@ -1215,16 +1218,18 @@
   }
 
   &__title {
+    @extend %transition;
+
     padding: 10px 20px;
     line-height: 1.5;
     background: $color-bg-light;
     cursor: pointer;
-    transition:
-      color            $transition-duration $transition-function,
-      background-color $transition-duration $transition-function;
+    transition-property: color, background-color;
   }
 
   &__content {
+    @extend %transition;
+
     position: relative;
     padding: 0 20px;
     max-height: 0;
@@ -1232,7 +1237,7 @@
     border: 1px solid #dadada;
     border-top: none;
     border-bottom: none;
-    transition: max-height $transition-duration $transition-function;
+    transition-property: max-height;
 
     &::after {
       content: '';
@@ -1457,6 +1462,7 @@
 
 .floating-button {
   @extend .icon;
+  @extend %transition;
 
   display: none;
   position: fixed;
@@ -1471,7 +1477,7 @@
   background: darken($color-primary-dark, 10%);
   transform: rotate(45deg);
   cursor: pointer;
-  transition: background-color $transition-duration $transition-function;
+  transition-property: background-color;
   animation: pulse 4s infinite;
 
   &.visible {
