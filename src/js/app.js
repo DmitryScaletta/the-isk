@@ -30,15 +30,12 @@ import { lory } from 'lory.js';
 
   const isActiveClass = 'is-active';
 
-  const toggleMenu = () => menuContainer.classList.toggle(isActiveClass);
+  const menuButton = menuContainer.querySelector('.js-toggle-menu');
+  if (menuButton === null) return;
 
-  Array.prototype.forEach.call(
-    document.getElementsByClassName('js-toggle-menu'),
-    item => item.addEventListener('click', () => {
-      toggleMenu();
-      item.classList.toggle(isActiveClass);
-    }),
-  );
+  const toggleMenu = () => [menuContainer, menuButton].forEach(item => item.classList.toggle(isActiveClass));
+
+  menuButton.addEventListener('click', toggleMenu);
 
   const overlay = menuContainer.querySelector('.js-menu-overlay');
   if (overlay !== null) overlay.addEventListener('click', toggleMenu);
