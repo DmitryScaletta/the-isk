@@ -1123,6 +1123,10 @@
     }
   }
 
+  &__link {
+    text-decoration: underline;
+  }
+
   &__button {
     margin-top: 15px;
     min-height: rem(46px);
