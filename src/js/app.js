@@ -39,6 +39,9 @@ import { lory } from 'lory.js';
       item.classList.toggle(isActiveClass);
     }),
   );
+
+  const overlay = menuContainer.querySelector('.js-menu-overlay');
+  if (overlay !== null) overlay.addEventListener('click', toggleMenu);
 })();
 
 

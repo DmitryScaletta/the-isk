@@ -3,8 +3,8 @@ header.header
     .header__content
       .header__logo
         a.logo(href='index.html')
-      .header__menu
-        nav.header-nav.js-menu
+      .header__menu.js-menu
+        nav.header-nav
           ul.header-nav__list
             each item in mainMenu
               - var hasSubmenu = Array.isArray(item.submenu)
@@ -21,6 +21,7 @@ header.header
             button.hamburger.hamburger--squeeze.js-toggle-menu(type='button')
               span.hamburger-box
                 span.hamburger-inner
+        .header__mobile-overlay.js-menu-overlay
       .header__phones
         ul.phones-list.phones-list--big
           each phone in contacts.phones
