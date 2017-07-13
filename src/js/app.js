@@ -44,7 +44,7 @@ import { lory } from 'lory.js';
 
 // main slider
 (() => {
-  const SLIDER_INTERVAL = 4000;
+  const SLIDER_INTERVAL = 5000;
 
   const sliderContainer = document.querySelector('.slider-main');
   if (sliderContainer === null) return;
