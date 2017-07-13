@@ -1285,7 +1285,8 @@
   }
 
   .block:last-child,
-  & > :last-child {
+  & > :last-child,
+  & > :last-child.list li:last-child {
     margin-bottom: 0;
   }
 }
