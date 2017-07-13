@@ -22,8 +22,8 @@
         <div class="header__logo">
           <a class="logo" href="index.html"></a>
         </div>
-        <div class="header__menu">
-          <nav class="header-nav js-menu">
+        <div class="header__menu js-menu">
+          <nav class="header-nav">
             <ul class="header-nav__list">
               <li class="header-nav__item"><a class="header-nav__link" href="index.html">Главная</a>
               </li>
@@ -62,6 +62,7 @@
               </button>
             </div>
           </div>
+          <div class="header__mobile-overlay js-menu-overlay"></div>
         </div>
         <div class="header__phones">
           <ul class="phones-list phones-list--big">
@@ -85,7 +86,7 @@
           <li class="breadcrumbs__item">Контакты</li>
         </ul>
       </nav>
-      <h2 class="section__title">Контакты</h2>
+      <h1 class="page-title">Контакты</h1>
       <div class="block block-layout">
         <div class="block-layout__contacts-text">
           <p>Краснодар, Северная 490, 3 этаж, офис 301</p>
@@ -141,7 +142,8 @@
             <textarea class="form__input form__textarea" name="message"></textarea>
           </div>
           <div class="form__bottom">
-            <div class="form__message">Отправляя форму, вы соглашаетесь на обработку персональных данных</div>
+            <div class="form__message">Отправляя форму, вы соглашаетесь на обработку <a class="form__link" href="#">персональных данных</a>
+            </div>
             <button class="button form__button">Отправить</button>
           </div>
         </div>
