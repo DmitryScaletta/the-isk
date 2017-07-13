@@ -15,11 +15,12 @@ html(lang='ru')
     section.section
       .section__inner
         +breadcrumbs(['Услуги', 'Юридические услуги для компаний'])
-        h2.section__title Банкротство
+
+        h1.page-title Банкротство
 
         .block.block-layout
           .block-layout__service-list
-            .block
+            .block.block-text
               ul.list.list--no-markers
                 each x, i in [...Array(5)]
                   li
@@ -37,22 +38,21 @@ html(lang='ru')
 
         .block.block-layout
           .block-layout__half
-            .block
-              h3.section__title Что входит в услугу?
+            .block.block-text
+              h2.strong.upper Что входит в услугу?
               ul.list.list--secondary
                 each item in lists[0]
                   li= item
           .block-layout__half
-            .block
-              h3.section__title Необходимые документы
+            .block.block-text
+              h2.strong.upper Необходимые документы
               ul.list.list--primary
                 each item in lists[1]
                   li= item
 
         .block.block-table
           table.table.content-table
-            caption
-              h3.content-table__title Дополнительные услуги
+            caption Дополнительные услуги
             tbody
               each item in services.forPeople
                 tr
@@ -61,7 +61,7 @@ html(lang='ru')
                     span.content-table__price 2500 ₽
 
         .block.block-slider
-          h3.section__title Выигранные дела по регистрации ИП
+          h2.section__title Выигранные дела по регистрации ИП
           -
             var slides = [
               ...sliders.portfolio,
@@ -115,7 +115,7 @@ html(lang='ru')
     section.section
       .section__inner
         .block.block-text
-          h4= randomText.title
+          h3= randomText.title
           each text in randomText.text
             p= text
 

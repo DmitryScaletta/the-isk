@@ -10,7 +10,7 @@ html(lang='ru')
       .section__inner
         +breadcrumbs(['О нас'])
 
-        h2.section__title О нас
+        h1.page-title О нас
 
         .block.block-text
           each text in randomText.text
@@ -25,7 +25,7 @@ html(lang='ru')
                 figcaption.block-menu__caption= item.text
 
         .block.block-slider
-          h3.section__title Наша команда
+          h2.section__title Наша команда
           -
             var slides = [
               ...sliders.team,

@@ -10,7 +10,9 @@ html(lang='ru')
     section.section.section-news
       .section__inner
         +breadcrumbs(['Новости'])
-        h2.section__title Новости
+
+        h1.page-title Новости
+
         .section__content
           each newsItem, i in news.items
             - var text = (i % 2 === 0) ? news.largeText : news.smallText;

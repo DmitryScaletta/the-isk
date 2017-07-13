@@ -66,6 +66,14 @@ img {
   text-align: center;
 }
 
+.upper {
+  text-transform: uppercase;
+}
+
+.strong {
+  font-weight: bold;
+}
+
 .button {
   @extend %transition;
 
