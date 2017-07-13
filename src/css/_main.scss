@@ -1115,10 +1115,10 @@
     font-size: 13px;
     line-height: 1.4;
     color: $color-text-soft;
-    flex-basis: calc(100% - 140px);
-    max-width: calc(100% - 140px);
 
     @media (min-width: $screen-sm) {
+      flex-basis: calc(100% - 140px);
+      max-width: calc(100% - 140px);
       padding-right: 50px;
     }
   }
