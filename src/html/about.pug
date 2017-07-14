@@ -1,44 +1,38 @@
-include mixins/breadcrumbs.pug
+extends layout/main.pug
 
-doctype html
-html(lang='ru')
-  include includes/head.pug
-  body
-    include includes/header.pug
-  
-    section.section
-      .section__inner
-        +breadcrumbs(['О нас'])
+block content
 
-        h1.page-title О нас
+  section.section
+    .section__inner
+      +breadcrumbs(['О нас'])
 
-        .block.block-text
-          each text in randomText.text
-            p= text
+      h1.page-title О нас
 
-        nav.block.block-menu
-          each item in mainMenu[4].submenu
-            figure.block-menu__item
-              a(href=item.link).block-menu__link
-                .block-menu__image-wrapper
-                  img.block-menu__image(src=`img/${item.image}`)
-                figcaption.block-menu__caption= item.text
+      .block.block-text
+        each text in randomText.text
+          p= text
 
-        .block.block-slider
-          h2.section__title Наша команда
-          - var slides = [...sliders.team, ...sliders.team, ...sliders.team];
-          .slider.slider-team.js_slider
-            .slider__frame.js_frame
-              .slider__items.js_slides
-                each slide in slides
-                  figure.slider__item.slider-item
-                    .shadow-slide
-                      .shadow-slide__image-wrapper
-                        img(src=`img/media/${slide.image}`, alt='')
-                    figcaption.slider-item__caption
-                      .slider-item__name= slide.name
-                      .slider-item__position= slide.position
-            span.slider__prev.js_prev
-            span.slider__next.js_next
+      nav.block.block-menu
+        each item in mainMenu[4].submenu
+          figure.block-menu__item
+            a(href=item.link).block-menu__link
+              .block-menu__image-wrapper
+                img.block-menu__image(src=`img/${item.image}`)
+              figcaption.block-menu__caption= item.text
 
-    include includes/footer.pug
+      .block.block-slider
+        h2.section__title Наша команда
+        - var slides = [...sliders.team, ...sliders.team, ...sliders.team];
+        .slider.slider-team.js_slider
+          .slider__frame.js_frame
+            .slider__items.js_slides
+              each slide in slides
+                figure.slider__item.slider-item
+                  .shadow-slide
+                    .shadow-slide__image-wrapper
+                      img(src=`img/media/${slide.image}`, alt='')
+                  figcaption.slider-item__caption
+                    .slider-item__name= slide.name
+                    .slider-item__position= slide.position
+          span.slider__prev.js_prev
+          span.slider__next.js_next

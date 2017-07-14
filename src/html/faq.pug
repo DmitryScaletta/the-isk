@@ -1,49 +1,43 @@
-include mixins/breadcrumbs.pug
+extends layout/main.pug
 
-doctype html
-html(lang='ru')
-  include includes/head.pug
-  body
-    include includes/header.pug
+block content
 
-    section.section
-      .section__inner
-        +breadcrumbs(['О нас', 'Вопрос-ответ'])
+  section.section
+    .section__inner
+      +breadcrumbs(['О нас', 'Вопрос-ответ'])
 
-        h1.page-title Вопрос-ответ
-        .block.block-layout
-          .block-layout__half
-            .block.block-faq.js-faq-items
-              each item, i in faq
-                - var className = (i === 0) ? 'active' : '';
-                .faq-item.js-faq-item(class=className)
-                  .faq-item__title.js-faq-title= item
-                  .faq-item__content.js-faq-content
-                    - var content = (i % 2 === 0) ? randomText.text : [randomText.text[1]]
-                    each text in content
-                      p= text
-            .block
-              form.form.form--borders(action='#')
-                .form__group
-                  - var field = feedbackForm.fields[0];
-                  label.form__label= field.label
-                  input.form__input(type='text', name='name', placeholder=field.placeholder)
-                .form__group
-                  - var field = feedbackForm.fields[1];
-                  label.form__label= field.label
-                  input.form__input(type='text', name='tel', placeholder=field.placeholder)
-                .form__group
-                  - var field = feedbackForm.fields[2];
-                  label.form__label= field.label
-                  textarea.form__input.form__textarea(name='message')
-                .form__bottom
-                  .form__message= feedbackForm.warningMessage[0]
-                    a(href='#').form__link= feedbackForm.warningMessage[1]
-                  button.button.form__button= feedbackForm.submitLabel
-                span.form__info Или задайте свой вопрос на почту 
-                  a(href=`mailto:${contacts.email}`)= contacts.email
-          .block-layout__half
-            .block
-              img(src='//placehold.it/555x900')
-
-    include includes/footer.pug
+      h1.page-title Вопрос-ответ
+      .block.block-layout
+        .block-layout__half
+          .block.block-faq.js-faq-items
+            each item, i in faq
+              - var className = (i === 0) ? 'active' : '';
+              .faq-item.js-faq-item(class=className)
+                .faq-item__title.js-faq-title= item
+                .faq-item__content.js-faq-content
+                  - var content = (i % 2 === 0) ? randomText.text : [randomText.text[1]]
+                  each text in content
+                    p= text
+          .block
+            form.form.form--borders(action='#')
+              .form__group
+                - var field = feedbackForm.fields[0];
+                label.form__label= field.label
+                input.form__input(type='text', name='name', placeholder=field.placeholder)
+              .form__group
+                - var field = feedbackForm.fields[1];
+                label.form__label= field.label
+                input.form__input(type='text', name='tel', placeholder=field.placeholder)
+              .form__group
+                - var field = feedbackForm.fields[2];
+                label.form__label= field.label
+                textarea.form__input.form__textarea(name='message')
+              .form__bottom
+                .form__message= feedbackForm.warningMessage[0]
+                  a(href='#').form__link= feedbackForm.warningMessage[1]
+                button.button.form__button= feedbackForm.submitLabel
+              span.form__info Или задайте свой вопрос на почту 
+                a(href=`mailto:${contacts.email}`)= contacts.email
+        .block-layout__half
+          .block
+            img(src='//placehold.it/555x900')

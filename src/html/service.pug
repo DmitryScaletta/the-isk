@@ -1,119 +1,113 @@
-include mixins/breadcrumbs.pug
+extends layout/main.pug
 
-doctype html
-html(lang='ru')
-  include includes/head.pug
-  body
-    include includes/header.pug
+block content
 
-    section.section-image.section(style=`background-image: url("img/media/${sliders.main[1].image}")`)
-      .section__inner
-        .section-image__content
-          span.section-image__title Cпециальное предложение
-          span.section-image__subtitle Для вашего бизнеса! <br> Именно для вашего бизнеса!
+  section.section-image.section(style=`background-image: url("img/media/${sliders.main[1].image}")`)
+    .section__inner
+      .section-image__content
+        span.section-image__title Cпециальное предложение
+        span.section-image__subtitle Для вашего бизнеса! <br> Именно для вашего бизнеса!
 
-    section.section
-      .section__inner
-        +breadcrumbs(['Услуги', 'Юридические услуги для компаний'])
+  section.section
+    .section__inner
+      +breadcrumbs(['Услуги', 'Юридические услуги для компаний'])
 
-        h1.page-title Банкротство
+      h1.page-title Банкротство
 
-        .block.block-layout
-          .block-layout__service-list
-            .block.block-text
-              ul.list.list--no-markers
-                each x, i in [...Array(5)]
-                  li
-                    a(href='#')= services.forPeople[i]
-          .block-layout__service-price
-            .block
-              .price-caption
-                .price-caption__content
-                  .price-caption__title Стоимость услуги
-                  .price-caption__price от 2500 ₽
-                  .price-caption__term 5-10 дней
+      .block.block-layout
+        .block-layout__service-list
+          .block.block-text
+            ul.list.list--no-markers
+              each x, i in [...Array(5)]
+                li
+                  a(href='#')= services.forPeople[i]
+        .block-layout__service-price
+          .block
+            .price-caption
+              .price-caption__content
+                .price-caption__title Стоимость услуги
+                .price-caption__price от 2500 ₽
+                .price-caption__term 5-10 дней
 
-        .block.block-text
-          p= randomText.text[1]
+      .block.block-text
+        p= randomText.text[1]
 
-        .block.block-layout
-          .block-layout__half
-            .block.block-text
-              h2.strong.upper Что входит в услугу?
-              ul.list.list--secondary
-                each item in lists[0]
-                  li= item
-          .block-layout__half
-            .block.block-text
-              h2.strong.upper Необходимые документы
-              ul.list.list--primary
-                each item in lists[1]
-                  li= item
+      .block.block-layout
+        .block-layout__half
+          .block.block-text
+            h2.strong.upper Что входит в услугу?
+            ul.list.list--secondary
+              each item in lists[0]
+                li= item
+        .block-layout__half
+          .block.block-text
+            h2.strong.upper Необходимые документы
+            ul.list.list--primary
+              each item in lists[1]
+                li= item
 
-        .block.block-table
-          table.table.content-table
-            caption Дополнительные услуги
-            tbody
-              each item in services.forPeople
-                tr
-                  td= item
-                  td 
-                    span.content-table__price 2500 ₽
+      .block.block-table
+        table.table.content-table
+          caption Дополнительные услуги
+          tbody
+            each item in services.forPeople
+              tr
+                td= item
+                td 
+                  span.content-table__price 2500 ₽
 
-        .block.block-slider
-          h2.section__title Выигранные дела по регистрации ИП
-          - var slides = [...sliders.portfolio, ...sliders.portfolio, ...sliders.portfolio];
-          .slider.slider-portfolio.js_slider
-            .slider__frame.js_frame
-              .slider__items.js_slides
-                each slide in slides
-                  .slider__item.slider-item
-                    .shadow-slide
-                      .shadow-slide__content
-                        .shadow-slide__title= slide.title
-                        .shadow-slide__text
-                          span.shadow-slide__subtitle= slide.content[0]
-                          br
-                          = slide.content[1]
-                          br
-                          span.shadow-slide__price= slide.content[2]
-                        a(href='#').button.button--soft.shadow-slide__button Посмотреть детали
-            span.slider__prev.js_prev
-            span.slider__next.js_next
+      .block.block-slider
+        h2.section__title Выигранные дела по регистрации ИП
+        - var slides = [...sliders.portfolio, ...sliders.portfolio, ...sliders.portfolio];
+        .slider.slider-portfolio.js_slider
+          .slider__frame.js_frame
+            .slider__items.js_slides
+              each slide in slides
+                .slider__item.slider-item
+                  .shadow-slide
+                    .shadow-slide__content
+                      .shadow-slide__title= slide.title
+                      .shadow-slide__text
+                        span.shadow-slide__subtitle= slide.content[0]
+                        br
+                        = slide.content[1]
+                        br
+                        span.shadow-slide__price= slide.content[2]
+                      a(href='#').button.button--soft.shadow-slide__button Посмотреть детали
+          span.slider__prev.js_prev
+          span.slider__next.js_next
 
-    section.section-promo.section
-      .section__inner
-        .section-promo__title.center Получите бесплатную консультацию по этой услуге
+  section.section-promo.section
+    .section__inner
+      .section-promo__title.center Получите бесплатную консультацию по этой услуге
 
-    section.section-feedback.section-feedback--image-2.section.section--padding
-      .section__inner
-        form.form.section__content(action='#')
-          .form__block-1
-            .form__group
-              - var field = feedbackForm.fields[0];
-              label.form__label= field.label
-              input.form__input(type='text', name='name', placeholder=field.placeholder)
-            .form__group
-              - var field = feedbackForm.fields[1];
-              label.form__label= field.label
-              input.form__input(type='text', name='tel', placeholder=field.placeholder)
-          .form__block-2
-            .form__group
-              - var field = feedbackForm.fields[2];
-              label.form__label= field.label
-              textarea.form__input.form__textarea(name='message')
-            .form__bottom
-              .form__message= feedbackForm.warningMessage[0]
-                a(href='#').form__link= feedbackForm.warningMessage[1]
-              button.button.form__button= feedbackForm.submitLabel
+  section.section-feedback.section-feedback--image-2.section.section--padding
+    .section__inner
+      form.form.section__content(action='#')
+        .form__block-1
+          .form__group
+            - var field = feedbackForm.fields[0];
+            label.form__label= field.label
+            input.form__input(type='text', name='name', placeholder=field.placeholder)
+          .form__group
+            - var field = feedbackForm.fields[1];
+            label.form__label= field.label
+            input.form__input(type='text', name='tel', placeholder=field.placeholder)
+        .form__block-2
+          .form__group
+            - var field = feedbackForm.fields[2];
+            label.form__label= field.label
+            textarea.form__input.form__textarea(name='message')
+          .form__bottom
+            .form__message= feedbackForm.warningMessage[0]
+              a(href='#').form__link= feedbackForm.warningMessage[1]
+            button.button.form__button= feedbackForm.submitLabel
 
-    section.section
-      .section__inner
-        .block.block-text
-          h3= randomText.title
-          each text in randomText.text
-            p= text
+  section.section
+    .section__inner
+      .block.block-text
+        h3= randomText.title
+        each text in randomText.text
+          p= text
 
-    include includes/features.pug
-
-    include includes/footer.pug
+  include includes/features.pug

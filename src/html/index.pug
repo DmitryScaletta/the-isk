@@ -1,112 +1,106 @@
-include mixins/news-preview-item.pug
+extends layout/main.pug
 
-doctype html
-html(lang='ru')
-  include includes/head.pug
-  body
-    include includes/header.pug
+block content
 
-    section.slider-main
-      .slider-main__items
-        each slide, i in sliders.main
-          - var style = `background-image: url("img/media/${slide.image}")`;
-          - var className = (i === 0) ? 'active' : '';
-          .main-slide.js-slide(style=style, class=className)
-            .main-slide__inner
-              .main-slide__content
-                span.main-slide__title= slide.title
-                span.main-slide__subtitle= slide.subtitle
-                span.main-slide__desc= slide.desc
-                a.button.main-slide__button(href='#')= slide.buttonLabel
-      .slider-main__controls
-        each slide, i in sliders.main
-          - var className = (i === 0) ? 'active' : '';
-          span.slider-main__dot.js-dot(class=className)
+  section.slider-main
+    .slider-main__items
+      each slide, i in sliders.main
+        - var style = `background-image: url("img/media/${slide.image}")`;
+        - var className = (i === 0) ? 'active' : '';
+        .main-slide.js-slide(style=style, class=className)
+          .main-slide__inner
+            .main-slide__content
+              span.main-slide__title= slide.title
+              span.main-slide__subtitle= slide.subtitle
+              span.main-slide__desc= slide.desc
+              a.button.main-slide__button(href='#')= slide.buttonLabel
+    .slider-main__controls
+      each slide, i in sliders.main
+        - var className = (i === 0) ? 'active' : '';
+        span.slider-main__dot.js-dot(class=className)
 
-    section.section
-      .section__inner
-        .block.block-text
-          h1.page-title.center= randomText.title
-          each text in randomText.text
-            p= text
+  section.section
+    .section__inner
+      .block.block-text
+        h1.page-title.center= randomText.title
+        each text in randomText.text
+          p= text
 
-    include includes/features.pug
+  include includes/features.pug
 
-    section.section
-      .section__inner
-        .block.block-text
-          h2.strong.upper= randomText.title
-          each text in randomText.text
-            p= text
+  section.section
+    .section__inner
+      .block.block-text
+        h2.strong.upper= randomText.title
+        each text in randomText.text
+          p= text
 
-    section.section-services
-      .section-services__inner
-        .section-services__content
-          .section-services__table.section-services__table--image-1
-            .section-services__table-wrapper.section-services__table-wrapper--icon-users-white
-              table.services-table.services-table--light
-                caption Услуги для компаний
-                tbody
-                  each service in services.forСompanies
-                    tr
-                      td= service
-                      td
-                        span.services-table__price от 2500 ₽
-                        span.services-table__term 5-10 дней
-              a.button.button--light.section-services__button(href='services.html') Все услуги
-          .section-services__table.section-services__table--image-2
-            .section-services__table-wrapper.section-services__table-wrapper--icon-user
-              table.services-table
-                caption Услуги для частных лиц
-                tbody
-                  each service in services.forPeople
-                    tr
-                      td= service
-                      td
-                        span.services-table__price от 2500 ₽
-                        span.services-table__term 5-10 дней
-              a.button.button--dark.section-services__button(href='services.html') Все услуги
+  section.section-services
+    .section-services__inner
+      .section-services__content
+        .section-services__table.section-services__table--image-1
+          .section-services__table-wrapper.section-services__table-wrapper--icon-users-white
+            table.services-table.services-table--light
+              caption Услуги для компаний
+              tbody
+                each service in services.forСompanies
+                  tr
+                    td= service
+                    td
+                      span.services-table__price от 2500 ₽
+                      span.services-table__term 5-10 дней
+            a.button.button--light.section-services__button(href='services.html') Все услуги
+        .section-services__table.section-services__table--image-2
+          .section-services__table-wrapper.section-services__table-wrapper--icon-user
+            table.services-table
+              caption Услуги для частных лиц
+              tbody
+                each service in services.forPeople
+                  tr
+                    td= service
+                    td
+                      span.services-table__price от 2500 ₽
+                      span.services-table__term 5-10 дней
+            a.button.button--dark.section-services__button(href='services.html') Все услуги
 
-    section.section-promo.section
-      .section__inner
-        .section-promo__title Акция! только для посетителей сайта!
-        .section-promo__text Закжите качественный анализ вашей ситуации + индивидуальный план действий <strong>БЕСПЛАТНО</strong>
+  section.section-promo.section
+    .section__inner
+      .section-promo__title Акция! только для посетителей сайта!
+      .section-promo__text Закжите качественный анализ вашей ситуации + индивидуальный план действий <strong>БЕСПЛАТНО</strong>
 
-    section.section-feedback.section-feedback--image-1.section.section--padding
-      .section__inner
-        form.form.section__content(action='#')
-          .form__content
-            .form__group.form__group--inline
-              - var field = feedbackForm.fields[0];
-              label.form__label= field.label
-              input.form__input(type='text', name='name', placeholder=field.placeholder)
-            .form__group.form__group--inline
-              - var field = feedbackForm.fields[1];
-              label.form__label= field.label
-              input.form__input(type='text', name='tel', placeholder=field.placeholder)
-            .form__group
-              - var field = feedbackForm.fields[2];
-              label.form__label= field.label
-              textarea.form__input.form__textarea(name='message')
-            .form__bottom
-              .form__message= feedbackForm.warningMessage[0]
-                a(href='#').form__link= feedbackForm.warningMessage[1]
-              button.button.form__button= feedbackForm.submitLabel
+  section.section-feedback.section-feedback--image-1.section.section--padding
+    .section__inner
+      form.form.section__content(action='#')
+        .form__content
+          .form__group.form__group--inline
+            - var field = feedbackForm.fields[0];
+            label.form__label= field.label
+            input.form__input(type='text', name='name', placeholder=field.placeholder)
+          .form__group.form__group--inline
+            - var field = feedbackForm.fields[1];
+            label.form__label= field.label
+            input.form__input(type='text', name='tel', placeholder=field.placeholder)
+          .form__group
+            - var field = feedbackForm.fields[2];
+            label.form__label= field.label
+            textarea.form__input.form__textarea(name='message')
+          .form__bottom
+            .form__message= feedbackForm.warningMessage[0]
+              a(href='#').form__link= feedbackForm.warningMessage[1]
+            button.button.form__button= feedbackForm.submitLabel
 
-    section.section
-      .section__inner
-        .block.block-text
-          h3= randomText.title
-          each text in randomText.text
-            p= text
-    
-    section.section-some-news.section.section--padding
-      .section__inner
-        h2.section__title.center Новости
-        .section__content
-          each x, i in [...Array(2)]
-            - var newsItem = news.items[i];
-            - var text = (i % 2 === 0) ? news.largeText : news.smallText;
-            +news-preview-item(newsItem, text)
-
-    include includes/footer.pug
+  section.section
+    .section__inner
+      .block.block-text
+        h3= randomText.title
+        each text in randomText.text
+          p= text
+  
+  section.section-some-news.section.section--padding
+    .section__inner
+      h2.section__title.center Новости
+      .section__content
+        each x, i in [...Array(2)]
+          - var newsItem = news.items[i];
+          - var text = (i % 2 === 0) ? news.largeText : news.smallText;
+          +news-preview-item(newsItem, text)

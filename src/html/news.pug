@@ -1,21 +1,14 @@
-include mixins/breadcrumbs.pug
-include mixins/news-preview-item.pug
+extends layout/main.pug
 
-doctype html
-html(lang='ru')
-  include includes/head.pug
-  body
-    include includes/header.pug
+block content
 
-    section.section.section-news
-      .section__inner
-        +breadcrumbs(['Новости'])
+  section.section.section-news
+    .section__inner
+      +breadcrumbs(['Новости'])
 
-        h1.page-title Новости
+      h1.page-title Новости
 
-        .section__content
-          each newsItem, i in news.items
-            - var text = (i % 2 === 0) ? news.largeText : news.smallText;
-            +news-preview-item(newsItem, text)
-
-    include includes/footer.pug
+      .section__content
+        each newsItem, i in news.items
+          - var text = (i % 2 === 0) ? news.largeText : news.smallText;
+          +news-preview-item(newsItem, text)

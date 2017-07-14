@@ -1,63 +1,57 @@
-include mixins/breadcrumbs.pug
+extends layout/main.pug
 
-doctype html
-html(lang='ru')
-  include includes/head.pug
-  body
-    include includes/header.pug
+block content
 
-    section.section
-      .section__inner
-        +breadcrumbs(['О нас', 'Контакты'])
+  section.section
+    .section__inner
+      +breadcrumbs(['О нас', 'Контакты'])
 
-        h1.page-title Контакты
-        .block.block-layout
-          .block-layout__contacts-text
-            p Краснодар, Северная 490, 3 этаж, офис 301
-            ul.phones-list
-              each phone in contacts.phones
-                li.phones-list__item
-                  a.phones-list__link(href=`tel:${phone.number}`)= phone.text
-            p
-              a.gray-link(href=`mailto:${contacts.email}`)= contacts.email
-            nav.socials
-              ul.socials__list
-                each social in socials
-                  li.socials__item
-                    a.socials__link.icon(class=social.icon, href=social.link)
-          .block-layout__contacts-map
-            iframe(
-              width="100%",
-              height="100%",
-              frameborder="0",
-              style="border:0",
-              src="https://www.google.com/maps?q=Краснодар,+Северная+490&output=embed"
-            )
+      h1.page-title Контакты
+      .block.block-layout
+        .block-layout__contacts-text
+          p Краснодар, Северная 490, 3 этаж, офис 301
+          ul.phones-list
+            each phone in contacts.phones
+              li.phones-list__item
+                a.phones-list__link(href=`tel:${phone.number}`)= phone.text
+          p
+            a.gray-link(href=`mailto:${contacts.email}`)= contacts.email
+          nav.socials
+            ul.socials__list
+              each social in socials
+                li.socials__item
+                  a.socials__link.icon(class=social.icon, href=social.link)
+        .block-layout__contacts-map
+          iframe(
+            width="100%",
+            height="100%",
+            frameborder="0",
+            style="border:0",
+            src="https://www.google.com/maps?q=Краснодар,+Северная+490&output=embed"
+          )
 
-    section.section-promo.section
-      .section__inner
-        .section-promo__title.center У вас есть вопросы? Задайте их нам!
+  section.section-promo.section
+    .section__inner
+      .section-promo__title.center У вас есть вопросы? Задайте их нам!
 
-    section.section-feedback.section.section--padding
-      .section__inner
-        form.form.section__content(action='#')
-          .form__block-1
-            .form__group
-              - var field = feedbackForm.fields[0];
-              label.form__label= field.label
-              input.form__input(type='text', name='name', placeholder=field.placeholder)
-            .form__group
-              - var field = feedbackForm.fields[1];
-              label.form__label= field.label
-              input.form__input(type='text', name='tel', placeholder=field.placeholder)
-          .form__block-2
-            .form__group
-              - var field = feedbackForm.fields[2];
-              label.form__label= field.label
-              textarea.form__input.form__textarea(name='message')
-            .form__bottom
-              .form__message= feedbackForm.warningMessage[0]
-                a.form__link(href='#')= feedbackForm.warningMessage[1]
-              button.button.form__button= feedbackForm.submitLabel
-
-    include includes/footer.pug
+  section.section-feedback.section.section--padding
+    .section__inner
+      form.form.section__content(action='#')
+        .form__block-1
+          .form__group
+            - var field = feedbackForm.fields[0];
+            label.form__label= field.label
+            input.form__input(type='text', name='name', placeholder=field.placeholder)
+          .form__group
+            - var field = feedbackForm.fields[1];
+            label.form__label= field.label
+            input.form__input(type='text', name='tel', placeholder=field.placeholder)
+        .form__block-2
+          .form__group
+            - var field = feedbackForm.fields[2];
+            label.form__label= field.label
+            textarea.form__input.form__textarea(name='message')
+          .form__bottom
+            .form__message= feedbackForm.warningMessage[0]
+              a.form__link(href='#')= feedbackForm.warningMessage[1]
+            button.button.form__button= feedbackForm.submitLabel

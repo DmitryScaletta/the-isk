@@ -10,11 +10,11 @@
       "submenu": [
         {
           "text": "Для компаний",
-          "link": "service.html"
+          "link": "services-for-companies.html"
         },
         {
           "text": "Для частных лиц",
-          "link": "service.html"
+          "link": "services-for-companies.html"
         }
       ]
     },
