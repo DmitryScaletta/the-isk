@@ -26,4 +26,4 @@ header.header
         ul.phones-list.phones-list--big
           each phone in contacts.phones
             li.phones-list__item
-              a.phones-list__link(href='tel:' + phone.number)= phone.text
+              a.phones-list__link(href=`tel:${phone.number}`)= phone.text

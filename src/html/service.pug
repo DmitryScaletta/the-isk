@@ -6,7 +6,7 @@ html(lang='ru')
   body
     include includes/header.pug
 
-    section.section-image.section(style='background-image: url("img/media/slide-2.jpg")')
+    section.section-image.section(style=`background-image: url("img/media/${sliders.main[1].image}")`)
       .section__inner
         .section-image__content
           span.section-image__title Cпециальное предложение
@@ -62,12 +62,7 @@ html(lang='ru')
 
         .block.block-slider
           h2.section__title Выигранные дела по регистрации ИП
-          -
-            var slides = [
-              ...sliders.portfolio,
-              ...[sliders.portfolio[1], sliders.portfolio[2], sliders.portfolio[0]],
-              ...[sliders.portfolio[2], sliders.portfolio[0], sliders.portfolio[1]],
-            ];
+          - var slides = [...sliders.portfolio, ...sliders.portfolio, ...sliders.portfolio];
           .slider.slider-portfolio.js_slider
             .slider__frame.js_frame
               .slider__items.js_slides

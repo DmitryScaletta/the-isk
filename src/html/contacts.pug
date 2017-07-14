@@ -17,9 +17,9 @@ html(lang='ru')
             ul.phones-list
               each phone in contacts.phones
                 li.phones-list__item
-                  a.phones-list__link(href='tel:' + phone.number)= phone.text
+                  a.phones-list__link(href=`tel:${phone.number}`)= phone.text
             p
-              a.gray-link(href='mailto:' + contacts.email)= contacts.email
+              a.gray-link(href=`mailto:${contacts.email}`)= contacts.email
             nav.socials
               ul.socials__list
                 each social in socials
@@ -57,7 +57,7 @@ html(lang='ru')
               textarea.form__input.form__textarea(name='message')
             .form__bottom
               .form__message= feedbackForm.warningMessage[0]
-                a(href='#').form__link= feedbackForm.warningMessage[1]
+                a.form__link(href='#')= feedbackForm.warningMessage[1]
               button.button.form__button= feedbackForm.submitLabel
 
     include includes/footer.pug

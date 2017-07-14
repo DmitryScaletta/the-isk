@@ -30,7 +30,7 @@ footer.footer.section.section--padding
         ul.phones-list
           each phone in contacts.phones
             li.phones-list__item
-              a.phones-list__link(href='tel:' + phone.number)= phone.text
+              a.phones-list__link(href=`tel:${phone.number}`)= phone.text
         a.footer__link(href='#') Заказать обратный звонок
         nav.socials.footer__socials
           ul.socials__list
