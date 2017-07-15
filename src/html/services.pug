@@ -8,7 +8,20 @@ block content
 
       h1.page-title Услуги
 
-  section.section-services
+  -
+    var lists = [
+      {
+        title: 'Услуги для компаний',
+        items: services.forСompanies,
+        style: 'gray',
+      },
+      {
+        title: 'Услуги для частных лиц',
+        items: services.forPeople,
+      },
+    ];
+  +services(...lists)
+  //- section.section-services
     .section-services__inner
       .section-services__content
         .section-services__table.section-services__table--gray

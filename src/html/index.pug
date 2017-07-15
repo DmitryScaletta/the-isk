@@ -35,7 +35,23 @@ block content
         each text in randomText.text
           p= text
 
-  section.section-services
+  -
+    var lists = [
+      {
+        title: 'Услуги для компаний',
+        items: services.forСompanies.slice(0, 3),
+        style: 'image-1',
+        button: true,
+      },
+      {
+        title: 'Услуги для частных лиц',
+        items: services.forPeople.slice(0, 6),
+        style: 'image-2',
+        button: true,
+      },
+    ];
+  +services(...lists)
+  //- section.section-services
     .section-services__inner
       .section-services__content
         .section-services__table.section-services__table--image-1

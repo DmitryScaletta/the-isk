@@ -843,6 +843,12 @@
 }
 
 .section-services {
+  &--no-padding {
+    .section-services__table {
+      padding-top: 10px;
+    }
+  }
+
   &__inner {
     @extend %container-fluid;
 
@@ -863,16 +869,25 @@
     background-repeat: no-repeat;
 
     &--image-1 {
-      background: #333365;
+      background-color: #333365;
+      color: $color-text-light;
 
       @media (min-width: $screen-sm) {
         background-position: center right;
         background-image: url('../img/section-services-bg-1.jpg');
       }
+
+      .section-services__title::after {
+        background-image: url('../img/icon-users-white.svg') !important;
+      }
+
+      .services-list__term {
+        color: #d5d0d0;
+      }
     }
 
     &--image-2 {
-      background: $color-bg-light;
+      background-color: $color-bg-light;
 
       @media (min-width: $screen-sm) {
         background-position: center left;
@@ -881,7 +896,7 @@
     }
 
     &--gray {
-      background: $color-bg-light;
+      background-color: $color-bg-light;
     }
 
     &:first-child {
@@ -894,11 +909,19 @@
       @media (min-width: $screen-xl) {
         padding-right: 60px;
       }
+
+      .section-services__title::after {
+        background-image: url('../img/icon-user.svg');
+      }
     }
 
     &:last-child {
       @media (min-width: $screen-xl) {
         padding-left: 60px;
+      }
+
+      .section-services__title::after {
+        background-image: url('../img/icon-users.svg');
       }
     }
   }
@@ -907,36 +930,6 @@
     position: relative;
     margin: 0 auto;
     text-align: center;
-
-    &--icon-user::before,
-    &--icon-users::before,
-    &--icon-users-white::before {
-      content: '';
-      display: block;
-      position: absolute;
-      right: 0;
-      top: 0;
-      height: 50px;
-      width: 53px;
-      background-position: top right;
-      background-repeat: no-repeat;
-
-      @media (min-width: $screen-sm) {
-        top: -17px;
-      }
-    }
-
-    &--icon-user::before {
-      background-image: url('../img/icon-user.svg');
-    }
-
-    &--icon-users::before {
-      background-image: url('../img/icon-users.svg');
-    }
-
-    &--icon-users-white::before {
-      background-image: url('../img/icon-users-white.svg');
-    }
 
     @media (min-width: $screen-sm) {
       width: $container-max-sm;
@@ -953,51 +946,92 @@
     }
   }
 
-  &__button {
-    display: inline-block;
-    margin: 10px auto 20px;
-  }
-}
-
-.services-table {
-  width: 100%;
-  font-size: rem(18px);
-  line-height: 1.44;
-  border-collapse: separate;
-  border-spacing: 0 35px;
-
-  &--light {
-    color: #fff;
-
-    .services-table__term {
-      color: #d5d0d0;
-    }
-  }
-
-  caption {
+  &__title {
+    display: block;
+    margin: 0 0 40px;
     padding: 0 60px 5px 0;
     font-size: rem(24px);
     font-weight: bold;
     line-height: 1.33;
     text-align: left;
     text-transform: uppercase;
-    border-spacing: 0;
+
+    &::after {
+      content: '';
+      display: block;
+      position: absolute;
+      right: 0;
+      top: 0;
+      height: 50px;
+      width: 53px;
+      background-position: top right;
+      background-repeat: no-repeat;
+
+      @media (min-width: $screen-sm) {
+        top: -17px;
+      }
+    }
   }
 
-  td {
-    text-align: left;
-    vertical-align: top;
+  &__link {
+    color: inherit;
   }
 
-  tr td:last-child {
-    white-space: nowrap;
-    width: 40%;
+  &__button {
+    display: inline-block;
+    margin: 20px auto;
+  }
+}
+
+.services-list {
+  margin: 0;
+  padding: 0;
+  flex-basis: 100%;
+  min-width: 100%;
+  list-style: none;
+  line-height: 1.44;
+  font-size: rem(18px);
+
+  .services-list {
+    .services-list__item {
+      padding-left: 20px;
+
+      @media (min-width: $screen-sm) {
+        padding-left: 30px;
+      }
+    }
+  }
+
+  &__item {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+
+  &__cell {
+    padding-bottom: 30px;
+
+    &:first-child {
+      flex-basis: 60%;
+      max-width: 60%;
+      text-align: left;
+    }
+
+    &:last-child {
+      flex-basis: 40%;
+      max-width: 40%;
+      white-space: nowrap;
+      text-align: right;
+    }
+  }
+
+  &__link {
+    color: inherit;
   }
 
   &__price {
     display: block;
     padding-bottom: 2px;
-    text-align: right;
     font-weight: bold;
   }
 
@@ -1006,7 +1040,6 @@
     position: relative;
     top: -3px;
     font-size: 14px;
-    text-align: right;
     color: $color-text-soft;
   }
 }

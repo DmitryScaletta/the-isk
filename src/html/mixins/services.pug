@@ -1,0 +1,48 @@
+mixin services-list(items)
+  ul.services-list
+    each item in items
+      li.services-list__item
+        .services-list__cell
+          a(href='service.html').services-list__link= item.text
+        .services-list__cell
+          span.services-list__price от 2500 ₽
+          span.services-list__term 5-10 дней
+        if Array.isArray(item.items)
+          +services-list(item.items)
+
+mixin services-table(list)
+  -
+    var tableClass = (typeof list.style === 'string') 
+      ? `section-services__table--${list.style}` 
+      : '';
+  .section-services__table(class=tableClass)
+    .section-services__table-wrapper
+      if typeof list.title === 'string'
+        h4.section-services__title
+          a.section-services__link(href='services-for-companies.html')= list.title
+      +services-list(list.items)
+      if list.button === true
+        - var buttonClass = list.style === 'image-1' ? 'button--light' : 'button--dark';
+        a.button(class=buttonClass, href='services-for-companies.html').section-services__button Все услуги
+
+mixin services(list1, list2)
+  section.section-services&attributes(attributes)
+    .section-services__inner
+      .section-services__content
+        +services-table(list1)
+        +services-table(list2)
+
+mixin _
+  section.section-services
+    .section-services__inner
+      .section-services__content
+        .section-services__table.section-services__table--gray
+          .section-services__table-wrapper
+            h4
+              a Услуги для компаний
+            +services-list(services.forСompanies)
+        .section-services__table
+          .section-services__table-wrapper
+            h4
+              a Услуги для компаний
+            +services-list(services.forPeople)

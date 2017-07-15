@@ -18,9 +18,9 @@ block content
         .block-layout__service-list
           .block.block-text
             ul.list.list--no-markers
-              each x, i in [...Array(5)]
+              each item in services.forPeople.slice(0, 5)
                 li
-                  a(href='#')= services.forPeople[i]
+                  a(href='#')= item.text
         .block-layout__service-price
           .block
             .price-caption
@@ -50,9 +50,9 @@ block content
         table.table.content-table
           caption Дополнительные услуги
           tbody
-            each item in services.forPeople
+            each item in services.forPeople.slice(0, 6)
               tr
-                td= item
+                td= item.text
                 td 
                   span.content-table__price 2500 ₽
 
