@@ -31,18 +31,3 @@ mixin services(list1, list2)
       .section-services__content
         +services-table(list1)
         +services-table(list2)
-
-mixin _
-  section.section-services
-    .section-services__inner
-      .section-services__content
-        .section-services__table.section-services__table--gray
-          .section-services__table-wrapper
-            h4
-              a Услуги для компаний
-            +services-list(services.forСompanies)
-        .section-services__table
-          .section-services__table-wrapper
-            h4
-              a Услуги для компаний
-            +services-list(services.forPeople)
