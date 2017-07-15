@@ -21,28 +21,3 @@ block content
       },
     ];
   +services(...lists)
-  //- section.section-services
-    .section-services__inner
-      .section-services__content
-        .section-services__table.section-services__table--gray
-          .section-services__table-wrapper.section-services__table-wrapper--icon-users
-            table.services-table
-              caption Услуги для компаний
-              tbody
-                each service in services.forСompanies
-                  tr
-                    td= service
-                    td
-                      span.services-table__price от 2500 ₽
-                      span.services-table__term 5-10 дней
-        .section-services__table
-          .section-services__table-wrapper.section-services__table-wrapper--icon-user
-            table.services-table
-              caption Услуги для частных лиц
-              tbody
-                each service in services.forPeople
-                  tr
-                    td= service
-                    td
-                      span.services-table__price от 2500 ₽
-                      span.services-table__term 5-10 дней

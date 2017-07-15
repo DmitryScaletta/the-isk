@@ -51,33 +51,6 @@ block content
       },
     ];
   +services(...lists)
-  //- section.section-services
-    .section-services__inner
-      .section-services__content
-        .section-services__table.section-services__table--image-1
-          .section-services__table-wrapper.section-services__table-wrapper--icon-users-white
-            table.services-table.services-table--light
-              caption Услуги для компаний
-              tbody
-                each service in services.forСompanies
-                  tr
-                    td= service
-                    td
-                      span.services-table__price от 2500 ₽
-                      span.services-table__term 5-10 дней
-            a.button.button--light.section-services__button(href='services.html') Все услуги
-        .section-services__table.section-services__table--image-2
-          .section-services__table-wrapper.section-services__table-wrapper--icon-user
-            table.services-table
-              caption Услуги для частных лиц
-              tbody
-                each service in services.forPeople
-                  tr
-                    td= service
-                    td
-                      span.services-table__price от 2500 ₽
-                      span.services-table__term 5-10 дней
-            a.button.button--dark.section-services__button(href='services.html') Все услуги
 
   section.section-promo.section
     .section__inner
