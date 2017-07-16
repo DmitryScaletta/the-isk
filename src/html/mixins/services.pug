@@ -26,7 +26,7 @@ mixin services-table(list)
         a.button(class=buttonClass, href='services-for-companies.html').section-services__button Все услуги
 
 mixin services(list1, list2)
-  section.section-services&attributes(attributes)
+  section.section-services
     .section-services__inner
       .section-services__content
         +services-table(list1)
