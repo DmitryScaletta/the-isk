@@ -14,7 +14,13 @@ footer.footer.section.section--padding
         a.footer__link(href='#') Все услуги для компаний
       section.footer__for-people
         h3.footer__title Для частных лиц
-        +footer-menu(services.forСompanies.slice(0, 7))
+        -
+          var items = [
+            ...services.forСompanies.slice(0, 1),
+            ...services.forСompanies[0].items,
+            ...services.forСompanies.slice(2, 5),
+          ];
+        +footer-menu(items)
         a.footer__link(href='#') Все услуги для частных лиц
       section.footer__usefull
         h3.footer__title Полезное
