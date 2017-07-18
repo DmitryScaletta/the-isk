@@ -150,6 +150,30 @@
       </form>
     </div>
   </section>
+  <div class="modal js-modal js-modal-call">
+    <div class="modal__content">
+      <div class="modal__close js-modal-close"></div>
+      <div class="modal__header">
+        <div class="modal__title">Обратный звонок</div>
+        <div class="modal__desc">Оставьте ваши данные и мы вам обязательно перезвоним</div>
+      </div>
+      <form class="form modal__form" action="#">
+        <div class="form__group">
+          <label class="form__label">Ваше имя:</label>
+          <input class="form__input" type="text" name="name" placeholder="Магдалена">
+        </div>
+        <div class="form__group">
+          <label class="form__label">Телефон или почта:</label>
+          <input class="form__input" type="text" name="tel" placeholder="name@mail.com">
+        </div>
+        <div class="modal__form-bottom">
+          <div class="modal__form-message">Отправляя форму, вы соглашаетесь на обработку <a class="form__link" href="#">персональных данных</a>
+          </div>
+          <button class="button form__button">Заказать</button>
+        </div>
+      </form>
+    </div>
+  </div>
   <footer class="footer section section--padding">
     <div class="section__inner">
       <div class="section__content">
@@ -216,7 +240,7 @@
             </li>
             <li class="phones-list__item"><a class="phones-list__link" href="tel:+79184453858">+7 (918) 445-38-58</a>
             </li>
-          </ul><a class="footer__link" href="#">Заказать обратный звонок</a>
+          </ul><a class="footer__link js-modal-call-open" href="#">Заказать обратный звонок</a>
           <nav class="socials footer__socials">
             <ul class="socials__list">
               <li class="socials__item">
@@ -245,7 +269,7 @@
       </div>
     </div>
   </footer>
-  <a class="floating-button js-floating-button"></a>
+  <a class="floating-button js-modal-call-open"></a>
   <script src="js/app.js"></script>
 </body>
 

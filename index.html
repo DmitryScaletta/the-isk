@@ -79,21 +79,21 @@
     <div class="slider-main__items">
       <div class="main-slide js-slide active" style="background-image: url(&quot;img/media/slide-1.jpg&quot;);">
         <div class="main-slide__inner">
-          <div class="main-slide__content"><span class="main-slide__title">Долой кредит!</span><span class="main-slide__subtitle">Больше денег! Больше жизни!</span><span class="main-slide__desc">Пройдя процедуру банкротства освободись от долгов и увеличь свои доходы</span><a class="button main-slide__button"
+          <div class="main-slide__content"><span class="main-slide__title">Долой кредит!</span><span class="main-slide__subtitle">Больше денег! Больше жизни!</span><span class="main-slide__desc">Пройдя процедуру банкротства освободись от долгов и увеличь свои доходы</span><a class="button main-slide__button js-modal-order-open"
             href="#">Подобрать программу</a>
           </div>
         </div>
       </div>
       <div class="main-slide js-slide" style="background-image: url(&quot;img/media/slide-2.jpg&quot;);">
         <div class="main-slide__inner">
-          <div class="main-slide__content"><span class="main-slide__title">Нам доверяют</span><span class="main-slide__subtitle">Меньше денег! Меньше жизни!</span><span class="main-slide__desc">Освободись от долгов и увеличь свои доходы пройдя процедуру банкротства</span><a class="button main-slide__button"
+          <div class="main-slide__content"><span class="main-slide__title">Нам доверяют</span><span class="main-slide__subtitle">Меньше денег! Меньше жизни!</span><span class="main-slide__desc">Освободись от долгов и увеличь свои доходы пройдя процедуру банкротства</span><a class="button main-slide__button js-modal-order-open"
             href="#">Посмотреть услуги</a>
           </div>
         </div>
       </div>
       <div class="main-slide js-slide" style="background-image: url(&quot;img/media/slide-3.jpg&quot;);">
         <div class="main-slide__inner">
-          <div class="main-slide__content"><span class="main-slide__title">То, что надо!</span><span class="main-slide__subtitle">Больше золота! Нужно больше!</span><span class="main-slide__desc">Увеличь свои доходы и освободись от долгов пройдя процедуру банкротства</span><a class="button main-slide__button"
+          <div class="main-slide__content"><span class="main-slide__title">То, что надо!</span><span class="main-slide__subtitle">Больше золота! Нужно больше!</span><span class="main-slide__desc">Увеличь свои доходы и освободись от долгов пройдя процедуру банкротства</span><a class="button main-slide__button js-modal-order-open"
             href="#">Свяжитесь с нами</a>
           </div>
         </div>
@@ -351,6 +351,58 @@
       </div>
     </div>
   </section>
+  <div class="modal js-modal js-modal-order">
+    <div class="modal__content">
+      <div class="modal__close js-modal-close"></div>
+      <div class="modal__header">
+        <div class="modal__title">Подобрать программу</div>
+        <div class="modal__desc">Оставьте ваши данные и мы найдем оптимальное решение вашей проблемы</div>
+      </div>
+      <form class="form modal__form" action="#">
+        <div class="form__group">
+          <label class="form__label">Ваше имя:</label>
+          <input class="form__input" type="text" name="name" placeholder="Магдалена">
+        </div>
+        <div class="form__group">
+          <label class="form__label">Телефон или почта:</label>
+          <input class="form__input" type="text" name="tel" placeholder="name@mail.com">
+        </div>
+        <div class="form__group">
+          <label class="form__label">Опишите ситуацию</label>
+          <textarea class="form__input form__textarea" name="message"></textarea>
+        </div>
+        <div class="modal__form-bottom">
+          <div class="modal__form-message">Отправляя форму, вы соглашаетесь на обработку <a class="form__link" href="#">персональных данных</a>
+          </div>
+          <button class="button form__button">Отправить</button>
+        </div>
+      </form>
+    </div>
+  </div>
+  <div class="modal js-modal js-modal-call">
+    <div class="modal__content">
+      <div class="modal__close js-modal-close"></div>
+      <div class="modal__header">
+        <div class="modal__title">Обратный звонок</div>
+        <div class="modal__desc">Оставьте ваши данные и мы вам обязательно перезвоним</div>
+      </div>
+      <form class="form modal__form" action="#">
+        <div class="form__group">
+          <label class="form__label">Ваше имя:</label>
+          <input class="form__input" type="text" name="name" placeholder="Магдалена">
+        </div>
+        <div class="form__group">
+          <label class="form__label">Телефон или почта:</label>
+          <input class="form__input" type="text" name="tel" placeholder="name@mail.com">
+        </div>
+        <div class="modal__form-bottom">
+          <div class="modal__form-message">Отправляя форму, вы соглашаетесь на обработку <a class="form__link" href="#">персональных данных</a>
+          </div>
+          <button class="button form__button">Заказать</button>
+        </div>
+      </form>
+    </div>
+  </div>
   <footer class="footer section section--padding">
     <div class="section__inner">
       <div class="section__content">
@@ -417,7 +469,7 @@
             </li>
             <li class="phones-list__item"><a class="phones-list__link" href="tel:+79184453858">+7 (918) 445-38-58</a>
             </li>
-          </ul><a class="footer__link" href="#">Заказать обратный звонок</a>
+          </ul><a class="footer__link js-modal-call-open" href="#">Заказать обратный звонок</a>
           <nav class="socials footer__socials">
             <ul class="socials__list">
               <li class="socials__item">
@@ -446,7 +498,7 @@
       </div>
     </div>
   </footer>
-  <a class="floating-button js-floating-button"></a>
+  <a class="floating-button js-modal-call-open"></a>
   <script src="js/app.js"></script>
 </body>
 
