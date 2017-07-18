@@ -179,3 +179,43 @@ import { lory } from 'lory.js';
     },
   );
 })();
+
+
+// modal forms
+(() => {
+  const classNameOpened = 'opened';
+
+  const toggleModal = modal => modal.classList.toggle(classNameOpened);
+
+  Array.prototype.forEach.call(
+    document.getElementsByClassName('js-modal'),
+    (modal) => {
+      modal.addEventListener('click', (e) => {
+        if (e.target === modal) toggleModal(modal);
+      });
+
+      const closeButton = modal.querySelector('.js-modal-close');
+      if (closeButton === null) return;
+
+      closeButton.addEventListener('click', () => toggleModal(modal));
+    },
+  );
+
+  const modalOrder = document.querySelector('.js-modal-order');
+  const modalCall  = document.querySelector('.js-modal-call');
+
+  const bindClickActions = (modal, className) => {
+    if (modal === null) return;
+
+    Array.prototype.forEach.call(
+      document.getElementsByClassName(className),
+      item => item.addEventListener('click', (e) => {
+        toggleModal(modal);
+        e.preventDefault();
+      }),
+    );
+  };
+
+  bindClickActions(modalOrder, 'js-modal-order-open');
+  bindClickActions(modalCall,  'js-modal-call-open');
+})();

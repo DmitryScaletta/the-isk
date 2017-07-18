@@ -5,6 +5,26 @@ mixin footer-menu(items)
         li.footer-menu__item
           a.footer-menu__link(href='#')= item.text
 
+.modal.js-modal.js-modal-call
+  .modal__content
+    .modal__close.js-modal-close
+    .modal__header
+      .modal__title Обратный звонок
+      .modal__desc Оставьте ваши данные и мы вам обязательно перезвоним
+    form.form.modal__form(action='#')
+      .form__group
+        - var field = feedbackForm.fields[0];
+        label.form__label= field.label
+        input.form__input(type='text', name='name', placeholder=field.placeholder)
+      .form__group
+        - var field = feedbackForm.fields[1];
+        label.form__label= field.label
+        input.form__input(type='text', name='tel', placeholder=field.placeholder)
+      div.modal__form-bottom
+        .modal__form-message= feedbackForm.warningMessage[0]
+          a(href='#').form__link= feedbackForm.warningMessage[1]
+        button.button.form__button Заказать
+
 footer.footer.section.section--padding
   .section__inner
     .section__content
@@ -32,7 +52,7 @@ footer.footer.section.section--padding
           each phone in contacts.phones
             li.phones-list__item
               a.phones-list__link(href=`tel:${phone.number}`)= phone.text
-        a.footer__link(href='#') Заказать обратный звонок
+        a.footer__link.js-modal-call-open(href='#') Заказать обратный звонок
         nav.socials.footer__socials
           ul.socials__list
             each social in socials
@@ -46,6 +66,6 @@ footer.footer.section.section--padding
           .footer__copyright-logo
             a.copyright-logo(href='//art6.ru')
 
-a.floating-button.js-floating-button
+a.floating-button.js-modal-call-open
 
 script(src='js/app.js')

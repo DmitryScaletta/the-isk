@@ -1875,3 +1875,106 @@
     box-shadow: 0 0 0 0 rgba($color-text-dark, 0);
   }
 }
+
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 20;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  overflow-y: auto;
+  overflow-x: hidden;
+  flex-direction: column;
+  align-items: center;
+  background: rgba(#000, 0.6);
+
+  @media (min-width: $screen-sm) {
+    padding-top: 10px;
+  }
+
+  @media (min-width: $screen-md) {
+    padding-top: 25px;
+  }
+
+  @media (min-width: $screen-lg) {
+    padding-top: 50px;
+  }
+
+  &.opened {
+    display: flex;
+  }
+
+  &__content {
+    position: relative;
+    margin: 10px;
+    padding: 15px 20px 25px;
+    max-width: 340px;
+    min-width: 300px;
+    background: $color-bg-light;
+
+    @media (min-width: $screen-sm) {
+      padding: 20px 30px 35px;
+    }
+
+    @media (min-width: $screen-md) {
+      padding: 30px 40px 50px;
+    }
+  }
+
+  &__close {
+    @extend .icon;
+    @extend %transition;
+
+    position: absolute;
+    padding: 5px;
+    top: 15px;
+    right: 15px;
+    color: $color-text-soft;
+    cursor: pointer;
+    transition-property: color;
+
+    &::before {
+      content: $icon-close;
+    }
+
+    &:hover {
+      color: $color-primary;
+    }
+  }
+
+  // &__header {}
+
+  &__title {
+    padding: 5px 0;
+    font-size: rem(18px);
+    font-weight: bold;
+    text-transform: uppercase;
+  }
+
+  &__desc {
+    padding-bottom: 30px;
+    font-size: 14px;
+    line-height: 1.45;
+    color: $color-text-soft;
+  }
+
+  // &__form {}
+
+  &__form-bottom {
+    text-align: center;
+  }
+
+  &__form-message {
+    margin-top: -20px;
+    font-size: 13px;
+    line-height: 1.4;
+    text-align: left;
+    color: $color-text-soft;
+
+    @media (min-width: $screen-sm) {
+      padding-bottom: 25px;
+    }
+  }
+}
