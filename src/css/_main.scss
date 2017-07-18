@@ -752,15 +752,20 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    height: 350px;
+    height: 300px;
     line-height: 1.4;
 
     @media (min-width: $screen-sm) {
-      padding-bottom: 30px;
-      height: 400px;
+      padding-bottom: 25px;
+      height: 350px;
     }
 
     @media (min-width: $screen-md) {
+      padding-bottom: 50px;
+      height: 400px;
+    }
+
+    @media (min-width: $screen-lg) {
       padding-bottom: 100px;
       height: 500px;
     }
