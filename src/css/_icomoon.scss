@@ -23,28 +23,27 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* .icon-mobile {
-  &:before {
-    content: $icon-mobile;
-  }
+/* .icon-close::before {
+  content: $icon-close;
 } */
-.icon-instagram {
-  &:before {
-    content: $icon-instagram;
-  }
-}
-.icon-vk {
-  &:before {
-    content: $icon-vk;
-  }
-}
-/* .icon-whatsapp {
-  &:before {
-    content: $icon-whatsapp;
-  }
+
+/* .icon-mobile::before {
+  content: $icon-mobile;
 } */
-.icon-odnoklassniki {
-  &:before {
-    content: $icon-odnoklassniki;
-  }
+
+.icon-instagram::before {
+  content: $icon-instagram;
 }
+
+.icon-vk::before {
+  content: $icon-vk;
+}
+
+/* .icon-whatsapp::before {
+  content: $icon-whatsapp;
+} */
+
+.icon-odnoklassniki::before {
+  content: $icon-odnoklassniki;
+}
+
