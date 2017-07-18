@@ -85,14 +85,22 @@ ul.list {
   border-collapse: collapse;
 
   td {
-    padding: 10px 0;
+    padding: 10px;
     border: 1px solid #c1c1c1;
     border-left: none;
     border-right: none;
     font-size: rem(18px);
 
+    &:first-child {
+      padding-left: 0;
+    }
+
+    &:last-child {
+      padding-right: 0;
+    }
+
     @media (min-width: $screen-md) {
-      padding: 18px 0;
+      padding: 18px;
     }
   }
 }
