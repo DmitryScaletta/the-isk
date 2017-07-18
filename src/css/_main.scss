@@ -1845,10 +1845,8 @@
   transition-property: background-color;
   animation: pulse 4s infinite;
 
-  &.visible {
-    @media (min-width: 1580px) {
-      display: block;
-    }
+  @media (min-width: 1580px) {
+    display: block;
   }
 
   &:hover {
