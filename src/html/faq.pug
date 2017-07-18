@@ -9,12 +9,12 @@ block content
       h1.page-title Вопрос-ответ
       .block.block-layout
         .block-layout__half
-          .block.block-faq.js-faq-items
+          .block.block-faq.js-accordion
             each item, i in faq
               - var className = (i === 0) ? 'active' : '';
-              .faq-item.js-faq-item(class=className)
-                .faq-item__title.js-faq-title= item
-                .faq-item__content.js-faq-content
+              .faq-item(class=className)
+                .faq-item__title= item
+                .faq-item__content
                   - var content = (i % 2 === 0) ? randomText.text : [randomText.text[1]]
                   each text in content
                     p= text

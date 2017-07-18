@@ -103,41 +103,53 @@ import { lory } from 'lory.js';
 
 // faq accordion
 (() => {
-  const faqContainer = document.querySelector('.js-faq-items');
-  if (faqContainer === null) return;
+  const simpleAccordion = (accordionContainer, options = {}) => {
+    const {
+      onlyOneActive = false,
+      classNameActive = 'active',
+    } = options;
 
-  const items    = faqContainer.getElementsByClassName('js-faq-item');
-  const titles   = Array.prototype.map.call(items, item => item.querySelector('.js-faq-title'));
-  const contents = Array.prototype.map.call(items, item => item.querySelector('.js-faq-content'));
+    const items = Array.prototype.map.call(
+      accordionContainer.children,
+      item => ({
+        elem: item,
+        title: item.firstElementChild,
+        content: item.lastElementChild,
+      }),
+    );
 
-  const activeClass = 'active';
+    const setContentMaxHeight = content => content.style.maxHeight =
+      (content.style.maxHeight
+        ? null
+        : `${content.scrollHeight}px`);
 
-  const setMaxHeight = (index) => {
-    const content = contents[index];
-    content.style.maxHeight = items[index].classList.contains(activeClass)
-      ? `${content.scrollHeight}px`
-      : null;
+    const isItemActive = item => item.elem.classList.contains(classNameActive);
+
+    const toggleItem = (item) => {
+      setContentMaxHeight(item.content);
+      item.elem.classList.toggle(classNameActive);
+    };
+
+    const handleClick = (index) => {
+      toggleItem(items[index]);
+
+      if (onlyOneActive) {
+        items.forEach((item, i) => {
+          if (i !== index && isItemActive(item)) toggleItem(items[i]);
+        });
+      }
+    };
+
+    items.forEach((item, index) => {
+      if (isItemActive(item)) setContentMaxHeight(item.content);
+      item.title.addEventListener('click', handleClick.bind(null, index));
+    });
   };
 
-  const setAllMaxHeights = () => [...Array(items.length)].forEach((_, i) => setMaxHeight(i));
-
-  const removeAllActiveItems = () => {
-    Array.prototype.forEach.call(items, item => item.classList.remove(activeClass));
-    setAllMaxHeights();
-  };
-
-  const setActiveItem = (index) => {
-    removeAllActiveItems();
-    items[index].classList.toggle(activeClass);
-    setMaxHeight(index);
-  };
-
-  document.addEventListener('DOMContentLoaded', setAllMaxHeights);
-
-  titles.forEach((title, index) => {
-    if (title === null) return;
-    title.addEventListener('click', setActiveItem.bind(null, index));
-  });
+  Array.prototype.forEach.call(
+    document.getElementsByClassName('js-accordion'),
+    elem => simpleAccordion(elem, { onlyOneActive: true }),
+  );
 })();
 
 
