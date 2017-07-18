@@ -64,16 +64,7 @@ block content
             .slider__items.js_slides
               each slide in slides
                 .slider__item.slider-item
-                  .shadow-slide
-                    .shadow-slide__content
-                      .shadow-slide__title= slide.title
-                      .shadow-slide__text
-                        span.shadow-slide__subtitle= slide.content[0]
-                        br
-                        = slide.content[1]
-                        br
-                        span.shadow-slide__price= slide.content[2]
-                      a(href='#').button.button--soft.shadow-slide__button Посмотреть детали
+                  +shadow-slide(slide)
           span.slider__prev.js_prev
           span.slider__next.js_next
 
@@ -109,5 +100,11 @@ block content
         h3= randomText.title
         each text in randomText.text
           p= text
+      .block.block-shadow-slides
+        h3 Выигранные дела по регистрации ИП
+        .block-shadow-slides__items
+          each slide in [...sliders.portfolio, ...sliders.portfolio.reverse()]
+            .block-shadow-slides__item
+              +shadow-slide(slide)
 
   include includes/features.pug

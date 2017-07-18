@@ -1639,6 +1639,22 @@
   }
 }
 
+.block-shadow-slides {
+  &__items {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+  }
+
+  &__item {
+    margin-bottom: 20px;
+
+    @media (min-width: $screen-sm) {
+      margin-bottom: 30px;
+    }
+  }
+}
+
 .gray-link {
   color: $color-text-soft;
 }
