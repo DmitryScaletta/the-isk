@@ -1,0 +1,11 @@
+mixin shadow-slide(slide)
+  .shadow-slide
+    .shadow-slide__content
+      .shadow-slide__title= slide.title
+      .shadow-slide__text
+        span.shadow-slide__subtitle= slide.content[0]
+        br
+        = slide.content[1]
+        br
+        span.shadow-slide__price= slide.content[2]
+      a(href='#').button.button--soft.shadow-slide__button Посмотреть детали
