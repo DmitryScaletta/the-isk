@@ -2,27 +2,6 @@ import Tooltip from 'tooltip.js';
 import { lory } from 'lory.js';
 
 
-// floating button
-(() => {
-  const floatingButton = document.querySelector('.js-floating-button');
-  if (floatingButton === null) return;
-
-  const visibleClass = 'visible';
-
-  const handleFloatingButton = () => {
-    const isHidden = window.pageYOffset < 250;
-    if (isHidden) {
-      floatingButton.classList.remove(visibleClass);
-    } else {
-      floatingButton.classList.add(visibleClass);
-    }
-  };
-
-  window.addEventListener('load',   handleFloatingButton);
-  window.addEventListener('scroll', handleFloatingButton);
-})();
-
-
 // mobile menu
 (() => {
   const menuContainer = document.querySelector('.js-menu');
