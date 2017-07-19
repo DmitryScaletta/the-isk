@@ -1187,6 +1187,7 @@
   }
 
   &__textarea {
+    display: block;
     min-height: 150px;
     max-height: 150px;
     min-width: 100%;
@@ -1961,14 +1962,19 @@
     color: $color-text-soft;
   }
 
-  // &__form {}
+  &__form {
+    .form__label {
+      display: block;
+      padding-bottom: 10px;
+    }
+  }
 
   &__form-bottom {
     text-align: center;
   }
 
   &__form-message {
-    margin-top: -20px;
+    margin-top: -15px;
     font-size: 13px;
     line-height: 1.4;
     text-align: left;
