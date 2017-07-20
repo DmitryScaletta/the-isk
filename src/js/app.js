@@ -141,21 +141,17 @@ import { lory } from 'lory.js';
         form.querySelector('input[name=name]'),
         form.querySelector('input[name=tel]'),
         form.querySelector('textarea[name=message]'),
-      ];
+      ].filter(item => item !== null);
 
-      const tooltips = validatedItems.map((item) => {
-        if (item === null) return null;
-        return new Tooltip(item, {
-          title: 'Это обязательное поле',
-          trigger: '',
-        });
-      });
+      const tooltips = validatedItems.map(item => new Tooltip(item, {
+        title: 'Это обязательное поле',
+        trigger: '',
+      }));
 
       const classNameInvalid = 'invalid';
 
       // remove invalid class on focus
       validatedItems.forEach((elem, index) => {
-        if (elem === null) return;
         elem.addEventListener('focus', () => {
           elem.classList.remove(classNameInvalid);
           tooltips[index].hide();
