@@ -1830,15 +1830,14 @@
   @extend .icon;
   @extend %transition;
 
-  display: none;
   position: fixed;
   z-index: 5;
-  right: 100px;
-  bottom: 150px;
-  width: 80px;
-  height: 80px;
-  line-height: 80px;
-  font-size: 50px;
+  right: 30px;
+  bottom: 30px;
+  width: 55px;
+  height: 55px;
+  line-height: 55px;
+  font-size: 36px;
   text-align: center;
   color: $color-text-light;
   background: darken($color-primary-dark, 10%);
@@ -1847,8 +1846,45 @@
   transition-property: background-color;
   animation: pulse 4s infinite;
 
+  @media (min-width: $screen-sm) {
+    right: 40px;
+    bottom: 50px;
+    width: 60px;
+    height: 60px;
+    line-height: 60px;
+    font-size: 40px;
+  }
+
+  @media (min-width: $screen-md) {
+    right: 50px;
+    bottom: 70px;
+    width: 70px;
+    height: 70px;
+    line-height: 70px;
+    font-size: 40px;
+  }
+
+  @media (min-width: $screen-lg) {
+    right: 60px;
+    bottom: 80px;
+    width: 75px;
+    height: 75px;
+    line-height: 75px;
+    font-size: 46px;
+  }
+
+  @media (min-width: $screen-xl) {
+    right: 80px;
+    bottom: 100px;
+    width: 80px;
+    height: 80px;
+    line-height: 80px;
+    font-size: 50px;
+  }
+
   @media (min-width: 1580px) {
-    display: block;
+    right: 100px;
+    bottom: 150px;
   }
 
   &:hover {
